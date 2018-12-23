@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "gatsby-themes",
+  "repository": "johno/gatsby-themes",
+  "license": "MIT",
+  "scripts": {
+    "bootstrap": "lerna bootstrap"
+  },
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "dependencies": {
+    "lerna": "^3.8.0"
+  }
+}
