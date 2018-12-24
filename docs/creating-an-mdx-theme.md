@@ -10,3 +10,8 @@
 - mdx provider
 - define customizable props for long form content/mdx
 - import * as ui from 'theme/ui'; ui.foo = bar; export default ui;
+
+
+## Random notes/thoughts/issues
+
+- MDXRenderer doesn't seem to pick up Provider

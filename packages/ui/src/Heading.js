@@ -29,3 +29,11 @@ Heading.defaultProps = {
   fontWeight: 'bold',
   lineHeight: 'title'
 }
+Heading.propTypes = {
+  ...color.propTypes,
+  ...fontSize.propTypes,
+  ...fontWeight.propTypes,
+  ...lineHeight.propTypes,
+  ...space.propTypes,
+  ...textAlign.propTypes
+}

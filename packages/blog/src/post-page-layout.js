@@ -1,23 +1,25 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
-import { Provider, Container, Heading } from 'gatsby-ui'
+import { Provider, mdComponents, Box, Container, Heading, Measure } from 'gatsby-ui'
 
 function PostPageTemplate({ data: { mdx } }) {
   return (
     <Provider>
-      <Container>
-        <Heading fontSize={6}>
-          {mdx.frontmatter.title}
-        </Heading>
-        <Heading
-          fontSize={1}
-          fontWeight="light"
-          color="grays.7"
-        >
-          {mdx.frontmatter.date}
-        </Heading>
-        <MDXRenderer>
+      <Container maxWidth="measureWide">
+        <Box mb={[3, 4, 5]}>
+          <Heading fontSize={6}>
+            {mdx.frontmatter.title}
+          </Heading>
+          <Heading
+            fontSize={1}
+            fontWeight="light"
+            color="grays.7"
+          >
+            {mdx.frontmatter.date}
+          </Heading>
+        </Box>
+        <MDXRenderer components={mdComponents}>
           {mdx.code.body}
         </MDXRenderer>
       </Container>

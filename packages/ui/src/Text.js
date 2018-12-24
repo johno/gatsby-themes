@@ -27,6 +27,14 @@ Text.defaultProps = {
   fontSize: 3,
   lineHeight: 'copy'
 }
+Text.propTypes = {
+  ...color.propTypes,
+  ...fontSize.propTypes,
+  ...fontWeight.propTypes,
+  ...lineHeight.propTypes,
+  ...space.propTypes,
+  ...textAlign.propTypes
+}
 
 export const Code = styled(Text)`
   font-family: ${fontFamilies.mono};
@@ -41,4 +49,13 @@ Code.defaultProps = {
   bg: 'grays.1',
   color: 'grays.9',
   px: 2
+}
+Code.propTypes = {
+  ...color.propTypes,
+  ...fontSize.propTypes,
+  ...fontWeight.propTypes,
+  ...lineHeight.propTypes,
+  ...space.propTypes,
+  ...textAlign.propTypes,
+  ...borderRadius.propTypes
 }
