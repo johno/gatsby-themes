@@ -9,7 +9,14 @@ module.exports = ({ root }) => ({
   },
   pathPrefix: '/blog',
   plugins: [
-    `gatsby-mdx`,
+    {
+      resolve: `gatsby-mdx`,
+      options: {
+        defaultLayouts: {
+          posts: require.resolve(`./src/post-page-layout`)
+        }
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

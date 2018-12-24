@@ -39,7 +39,7 @@ exports.createPages = ({ graphql, actions }) => {
               require.resolve('./src/post-page-layout.js'),
               node.code.scope
             ),
-            context: { id: node.id }
+            context: node
           })
         })
       })
