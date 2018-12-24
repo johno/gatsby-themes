@@ -1,6 +1,6 @@
 # Gatsby themes
 
-A collection of themes using Gatsby's experimental theming API.
+A collection of themes using Gatsby's theming API and an experimental `gatsby-ui` library.
 
 ## List of themes
 
