@@ -1,0 +1,5 @@
+# Divider
+
+```.jsx
+<Divider />
+```

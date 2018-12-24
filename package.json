@@ -6,6 +6,10 @@
   "scripts": {
     "bootstrap": "lerna bootstrap"
   },
+  "author": "John Otander <johnotander@gmail.com> (http://johnotander.com)",
+  "contributors": [
+    "John Otander <johnotander@gmail.com> (http://johnotander.com)"
+  ],
   "workspaces": [
     "packages/*",
     "examples/*"
