@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import {
   alignSelf,
   borderColor,
-  borderStyle,
-  borderWidth,
   boxShadow,
   color,
   flex,
@@ -19,8 +17,6 @@ export const Box = styled.div`
 
   ${alignSelf}
   ${borderColor}
-  ${borderStyle}
-  ${borderWidth}
   ${boxShadow}
   ${color}
   ${flex}

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {space, width, maxWidth, borderStyle, borderColor} from 'styled-system'
+import {space, width, maxWidth, borderColor} from 'styled-system'
 
 export const Divider = styled.hr`
   border-top: none;
@@ -7,14 +7,13 @@ export const Divider = styled.hr`
   border-right: none;
 
   ${borderColor}
-  ${borderStyle}
+  ${maxWidth}
   ${space}
   ${width}
 `
 
 Divider.displayName = 'gatsby-ui.Divider'
 Divider.defaultProps = {
-  borderStyle: 'thin solid',
   borderColor: 'grays.1',
   my: 4
 }

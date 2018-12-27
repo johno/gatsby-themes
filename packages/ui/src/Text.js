@@ -6,7 +6,8 @@ import {
   fontSize,
   fontWeight,
   lineHeight,
-  space
+  space,
+  textAlign
 } from 'styled-system'
 
 import {fontFamilies} from './theme'
@@ -19,6 +20,7 @@ export const Text = styled.p`
   ${fontWeight}
   ${lineHeight}
   ${space}
+  ${textAlign}
 `
 
 Text.displayName = 'gatsby-ui.Text'

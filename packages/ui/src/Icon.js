@@ -11,7 +11,7 @@ export const Icon = ({name, color = '#000', size = 64, ...props}) => {
 
   const url = `${URL_BASE}/${name}/${color.replace('#', '')}/${size}`
 
-  return <img src={url} {...props} />
+  return <img src={url} alt={`Icon for ${name}`} {...props} />
 }
 
 Icon.displayName = 'gatsby-ui.Icon'

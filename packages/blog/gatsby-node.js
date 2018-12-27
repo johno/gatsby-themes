@@ -35,11 +35,11 @@ exports.createPages = ({ graphql, actions }) => {
         result.data.allMdx.edges.forEach(({ node }) => {
           createPage({
             path: `/${node.parent.sourceInstanceName}/${node.parent.name}`,
+            context: node,
             component: componentWithMDXScope(
               require.resolve('./src/post-page-layout.js'),
               node.code.scope
-            ),
-            context: node
+            )
           })
         })
       })
