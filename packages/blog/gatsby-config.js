@@ -1,6 +1,4 @@
-const path = require(`path`)
-
-module.exports = args => {
+module.exports = () => {
   return {
     siteMetadata: {
       title: `Awesome blog`,
@@ -27,7 +25,7 @@ module.exports = args => {
       {
         resolve: `gatsby-plugin-page-creator`,
         options: {
-          path: `${__dirname}/src/pages`
+          path: `src/pages`
         }
       }
     ]
