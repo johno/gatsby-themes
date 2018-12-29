@@ -10,6 +10,7 @@ A collection of themes using Gatsby's theming API and an experimental `gatsby-ui
 
 - `@johno/gatsby-theme-blog`: Minimal blog theme for developers
 - `@johno/gatsby-theme-docs`: Themeable docs site based on a `docs/` directory
+- `@johno/gatsby-theme-unsplash`: Turn your unsplash photos into a gallery
 
 ## `@johno/gatsby-theme-blog`
 

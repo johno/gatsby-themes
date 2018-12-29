@@ -9,6 +9,7 @@ export {Icon} from './Icon'
 export {Image} from './Image'
 export {Logo} from './Logo'
 
+export {Link} from './Link'
 export {Button} from './Button'
 export {Input} from './Input'
 

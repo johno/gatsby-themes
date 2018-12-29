@@ -5,6 +5,7 @@ import {
   borderColor,
   boxShadow,
   color,
+  display,
   flex,
   order,
   space,
@@ -19,6 +20,7 @@ export const Box = styled.div`
   ${borderColor}
   ${boxShadow}
   ${color}
+  ${display}
   ${flex}
   ${order}
   ${space}
