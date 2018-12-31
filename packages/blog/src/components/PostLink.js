@@ -13,11 +13,11 @@ function toPath ({ path, parent = {} }) {
   ].join('/')
 }
 
-function PostLink({ post }) {
+function PostLink({ post, wrapperProps = {} }) {
   const path = toPath(post)
 
   return (
-    <Link as={GatsbyLink} to={path} color="black">
+    <Link as={GatsbyLink} to={path} color="black" {...wrapperProps}>
       <Box as="span" my={[2,3,4]} display="block">
         <Text fontSize={0} color="grays.8">
           {post.frontmatter.date}
@@ -28,6 +28,13 @@ function PostLink({ post }) {
       </Box>
     </Link>
   )
+}
+
+PostLink.propertyControls = {
+  wrapperProps: {
+    title: 'Link Box',
+    propertyControls: Box.propertyControls
+  }
 }
 
 export default PostLink
