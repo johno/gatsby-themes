@@ -13,7 +13,7 @@ module.exports = () => {
         resolve: `gatsby-mdx`,
         options: {
           defaultLayouts: {
-            posts: require.resolve(`./src/post-page-layout`)
+            posts: require.resolve(`./src/components/PostPageLayout.js`)
           }
         }
       },

@@ -1,0 +1,25 @@
+import React from 'react'
+import { graphql } from 'gatsby'
+
+import PostPageRenderer from './PostPageRenderer'
+
+function PostPageLayout(props) {
+  return <PostPageRenderer {...props} />
+}
+
+export default PostPageLayout
+
+export const pageQuery = graphql`
+  query($id: String!) {
+    mdx(id: { eq: $id }) {
+      id
+      code {
+        body
+      }
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+      }
+    }
+  }
+`

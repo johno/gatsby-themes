@@ -20,6 +20,7 @@ exports.createPages = ({ graphql, actions }) => {
                   }
                   frontmatter {
                     redirects
+                    path
                   }
                   code {
                     scope
@@ -36,7 +37,8 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         result.data.allMdx.edges.forEach(({ node }) => {
-          const path = `/${node.parent.sourceInstanceName}/${node.parent.name}`
+          const fallbackPath = `/${node.parent.sourceInstanceName}/${node.parent.name}`
+          const path = node.frontmatter.path || fallbackPath
 
           if (node.frontmatter.redirects) {
             node.frontmatter.redirects.forEach(fromPath => {
@@ -53,7 +55,7 @@ exports.createPages = ({ graphql, actions }) => {
             path,
             context: node,
             component: componentWithMDXScope(
-              require.resolve('./src/post-page-layout.js'),
+              require.resolve('./src/components/PostPageLayout.js'),
               node.code.scope
             )
           })

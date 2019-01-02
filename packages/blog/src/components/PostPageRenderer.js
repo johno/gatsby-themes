@@ -1,11 +1,10 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
-import { Provider, mdComponents, Box, Container, Heading, Measure } from 'gatsby-ui'
+import { mdComponents, Box, Container, Heading } from 'gatsby-ui'
 
-import Layout from './components/Layout'
+import Layout from './Layout'
 
-function PostPageTemplate({ data: { mdx } }) {
+function PostPage({ data: { mdx } }) {
   return (
     <Layout>
       <Container maxWidth="measureWide">
@@ -29,19 +28,4 @@ function PostPageTemplate({ data: { mdx } }) {
   )
 }
 
-export default PostPageTemplate
-
-export const pageQuery = graphql`
-  query($id: String!) {
-    mdx(id: { eq: $id }) {
-      id
-      code {
-        body
-      }
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-      }
-    }
-  }
-`
+export default PostPage

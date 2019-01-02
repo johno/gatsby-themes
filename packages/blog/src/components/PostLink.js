@@ -2,9 +2,9 @@ import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import { Box, Link, Heading, Text } from 'gatsby-ui'
 
-function toPath ({ path, parent = {} }) {
-  if (path) {
-    return path
+function toPath ({ frontmatter, parent = {} }) {
+  if (frontmatter.path) {
+    return frontmatter.path
   }
 
   return [

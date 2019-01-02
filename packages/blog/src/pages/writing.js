@@ -40,6 +40,7 @@ export const query = graphql`
           }
           frontmatter {
             title
+            path
             archived
             date(formatString: "MMMM DD, YYYY")
           }
