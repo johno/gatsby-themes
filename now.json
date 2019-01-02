@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "alias": ["gatsby-themes.johno.com"],
+  "builds": [
+    { "src": "examples/blog/package.json", "use": "@now/static-build" }
+  ]
+}

@@ -1,24 +1,20 @@
 import React from 'react'
-import { graphql, Link as GatsbyLink } from 'gatsby'
-import { Box, Container, Heading, Link } from 'gatsby-ui'
+import { graphql } from 'gatsby'
+import { Container, Heading } from 'gatsby-ui'
 
-import Layout from '../components/Layout'
-import PostLink from '../components/PostLink'
+import Layout from '../../components/Layout'
+import PostLink from '../../components/PostLink'
 
 function PostList({ data }) {
-  const { allMdx: { edges } } = data
-  const posts = edges.filter(edge => !edge.node.frontmatter.archived)
+  const { allMdx: { edges: posts } } = data
 
   return (
     <Layout>
       <Container mt={[3, 4, 5]} maxWidth="measureWide">
-        <Heading fontSize={3}>Writing</Heading>
+        <Heading fontSize={3}>Archive</Heading>
         {posts.map(post => (
           <PostLink key={post.node.id} post={post.node} />
         ))}
-        <Box mt={[4, 4, 5]}>
-          <Link as={GatsbyLink} to="/posts/archive" color="black">Archive</Link>
-        </Box>
       </Container>
     </Layout>
   )

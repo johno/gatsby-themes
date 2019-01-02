@@ -18,11 +18,11 @@ function PostLink({ post, wrapperProps = {} }) {
 
   return (
     <Link as={GatsbyLink} to={path} color="black" {...wrapperProps}>
-      <Box as="span" my={[2,3,4]} display="block">
+      <Box as="span" my={[3,3,4]} display="block">
         <Text fontSize={0} color="grays.8">
           {post.frontmatter.date}
         </Text>
-        <Heading fontSize={4}>
+        <Heading fontSize={[4, 4, 5]}>
           {post.frontmatter.title}
         </Heading>
       </Box>

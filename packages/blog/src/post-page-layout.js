@@ -3,9 +3,11 @@ import { graphql } from 'gatsby'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import { Provider, mdComponents, Box, Container, Heading, Measure } from 'gatsby-ui'
 
+import Layout from './components/Layout'
+
 function PostPageTemplate({ data: { mdx } }) {
   return (
-    <Provider>
+    <Layout>
       <Container maxWidth="measureWide">
         <Box mb={[3, 4, 5]}>
           <Heading fontSize={6}>
@@ -23,7 +25,7 @@ function PostPageTemplate({ data: { mdx } }) {
           {mdx.code.body}
         </MDXRenderer>
       </Container>
-    </Provider>
+    </Layout>
   )
 }
 

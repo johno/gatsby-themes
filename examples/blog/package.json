@@ -3,10 +3,12 @@
   "name": "blog",
   "version": "0.0.0",
   "scripts": {
-    "start": "gatsby develop"
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "now-build": "gatsby build --prefix-paths && mv public dist"
   },
   "dependencies": {
-    "@johno/gatsby-theme-blog": "*",
-    "gatsby": "^2.0.75"
+    "gatsby-theme-minimal-blog": "*",
+    "gatsby": "latest"
   }
 }

@@ -29,7 +29,9 @@ module.exports = () => {
         options: {
           path: path.join(__dirname, `./src/pages`)
         }
-      }
+      },
+      `gatsby-plugin-meta-redirect`,
+      `gatsby-plugin-styled-components`
     ]
   }
 }

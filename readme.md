@@ -8,11 +8,11 @@ A collection of themes using Gatsby's theming API and an experimental `gatsby-ui
 
 ## Themes
 
-- `@johno/gatsby-theme-blog`: Minimal blog theme for developers
+- `gatsby-theme-minimal-blog`: Minimal blog theme for developers
 - `@johno/gatsby-theme-docs`: Themeable docs site based on a `docs/` directory
 - `@johno/gatsby-theme-unsplash`: Turn your unsplash photos into a gallery
 
-## `@johno/gatsby-theme-blog`
+## `gatsby-theme-minimal-blog`
 
 A minimal blog theme for developers.
 I built this theme for my personal website, <https://johno.com>, but anyone can use and modify however they'd like.
