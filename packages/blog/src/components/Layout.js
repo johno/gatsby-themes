@@ -1,12 +1,12 @@
 import React from 'react'
-import { Provider } from 'gatsby-ui'
+import { Provider, Container } from 'gatsby-ui'
 
 function Layout({ children }) {
   return (
     <Provider>
-      <>
+      <Container mt={[3, 4, 5]}>
         {children}
-      </>
+      </Container>
     </Provider>
   )
 }

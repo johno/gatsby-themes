@@ -20,6 +20,8 @@ export {Flex} from './Flex'
 export {Container} from './Container'
 export {Measure} from './Measure'
 
+export {CodeBlock} from './CodeBlock'
+
 export {Provider} from './Provider'
 
 export {default as mdComponents} from './mdComponents'

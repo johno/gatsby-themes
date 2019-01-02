@@ -10,7 +10,7 @@ function PostList({ data }) {
 
   return (
     <Layout>
-      <Container mt={[3, 4, 5]} maxWidth="measureWide">
+      <Container maxWidth="measureWide">
         <Heading fontSize={3}>Archive</Heading>
         {posts.map(post => (
           <PostLink key={post.node.id} post={post.node} />
@@ -36,6 +36,7 @@ export const query = graphql`
           }
           frontmatter {
             title
+            path
             archived
             date(formatString: "MMMM DD, YYYY")
           }

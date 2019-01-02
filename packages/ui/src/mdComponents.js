@@ -4,6 +4,7 @@ import {
   Heading,
   Text,
   Code,
+  CodeBlock,
   Blockquote,
   OrderedList,
   UnorderedList,
@@ -26,5 +27,6 @@ export default {
   li: ListItem,
 
   blockquote: Blockquote,
-  inlineCode: Code
+  inlineCode: Code,
+  code: CodeBlock
 }

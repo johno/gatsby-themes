@@ -11,7 +11,7 @@ function PostList({ data }) {
 
   return (
     <Layout>
-      <Container mt={[3, 4, 5]} maxWidth="measureWide">
+      <Container maxWidth="measureWide">
         <Heading fontSize={3}>Writing</Heading>
         {posts.map(post => (
           <PostLink key={post.node.id} post={post.node} />
