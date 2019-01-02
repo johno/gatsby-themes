@@ -6,7 +6,7 @@
     "start": "gatsby develop"
   },
   "dependencies": {
-    "@johno/gatsby-theme-blog": "*",
-    "gatsby": "^2.0.75"
+    "gatsby-theme-minimal-blog": "latest",
+    "gatsby": "latest"
   }
 }
