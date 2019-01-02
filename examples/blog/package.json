@@ -3,10 +3,11 @@
   "name": "blog",
   "version": "0.0.0",
   "scripts": {
-    "start": "gatsby develop"
+    "start": "gatsby develop",
+    "build": "gatsby build"
   },
   "dependencies": {
-    "gatsby-theme-minimal-blog": "latest",
+    "gatsby-theme-minimal-blog": "*",
     "gatsby": "latest"
   }
 }

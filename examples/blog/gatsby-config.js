@@ -1,7 +1,7 @@
 module.exports = {
   __experimentalThemes: [
     {
-      resolve: '@johno/gatsby-theme-blog',
+      resolve: 'gatsby-theme-minimal-blog',
       options: {
         root: __dirname
       }
