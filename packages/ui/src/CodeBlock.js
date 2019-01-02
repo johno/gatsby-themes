@@ -1,9 +1,6 @@
 import React from 'react'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 
-import {Box} from './Box'
-
-// Original: https://github.com/damienstanton/ultramin
 const theme = {
   plain: {
     backgroundColor: "#faf8f5",

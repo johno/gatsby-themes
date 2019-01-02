@@ -3,12 +3,6 @@ const componentWithMDXScope = require('gatsby-mdx/component-with-mdx-scope')
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
 
-  createRedirect({
-    fromPath: '/',
-    toPath: '/writing',
-    redirectInBrowser: true
-  })
-
   return new Promise((resolve, reject) => {
     resolve(
       graphql(
