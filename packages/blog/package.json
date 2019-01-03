@@ -1,7 +1,7 @@
 {
   "name": "gatsby-theme-minimal-blog",
   "description": "Minimal gatsby theme for a blog",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "author": "John Otander",
   "scripts": {
