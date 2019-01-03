@@ -28,7 +28,7 @@ action "npm:publish:ci" {
 action "site" {
   uses = "actions/zeit-now@9fe84d5"
   secrets = ["ZEIT_TOKEN"]
-  args = "--public --no-clipboard deploy ./site > $HOME/$GITHUB_ACTION.txt"
+  args = "--public --no-clipboard deploy . > $HOME/$GITHUB_ACTION.txt"
 }
 
 action "site:sha-alias" {
