@@ -1,4 +1,4 @@
-workflow "publish" {
+workflow "npm" {
   on = "push"
   resolves = ["npm:publish:ci"]
 }
@@ -23,4 +23,22 @@ action "npm:publish:ci" {
   ]
   args = "publish:ci"
   needs = ["npm:install"]
+}
+
+workflow "site" {
+  on = "push"
+  resolves = ["site:sha-alias"]
+}
+
+action "site:publish" {
+  uses = "actions/zeit-now@9fe84d5"
+  args = "--public --no-clipboard > $HOME/$GITHUB_ACTION.txt"
+  secrets = ["ZEIT_TOKEN"]
+}
+
+action "site:sha-alias" {
+  uses = "actions/zeit-now@9fe84d5"
+  args = "alias `cat /github/home/deploy.txt` $GITHUB_SHA"
+  secrets = ["ZEIT_TOKEN"]
+  needs = ["site:publish"]
 }
