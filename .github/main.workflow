@@ -27,13 +27,20 @@ action "npm:publish:ci" {
 
 workflow "site" {
   on = "push"
-  resolves = ["site:sha-alias"]
+  resolves = ["site:install"]
+}
+
+action "site:install" {
+  uses = "johno/actions-yarn@master"
+  args = "install"
+  secrets = ["NPM_AUTH_TOKEN"]
 }
 
 action "site:publish" {
   uses = "actions/zeit-now@9fe84d5"
   args = "--public --no-clipboard > $HOME/$GITHUB_ACTION.txt"
   secrets = ["ZEIT_TOKEN"]
+  needs = ["site:install"]
 }
 
 action "site:sha-alias" {
