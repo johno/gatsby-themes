@@ -10,7 +10,7 @@ action "master" {
 
 action "install" {
   uses = "johno/actions-yarn@master"
-  args = "yarn install"
+  args = "install"
   secrets = ["NPM_AUTH_TOKEN"]
   needs = ["master"]
 }
