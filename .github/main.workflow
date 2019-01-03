@@ -1,6 +1,6 @@
 workflow "Publish to npm" {
   on = "push"
-  resolves = ["GitHub Action for npm-1"]
+  resolves = ["nuxt/actions-yarn@master-1"]
 }
 
 action "Filters for GitHub Actions" {
@@ -8,9 +8,15 @@ action "Filters for GitHub Actions" {
   args = "branch master"
 }
 
-action "GitHub Action for npm-1" {
-  uses = "actions/npm@e7aaefe"
+action "nuxt/actions-yarn@master" {
+  uses = "nuxt/actions-yarn@master"
   needs = ["Filters for GitHub Actions"]
-  runs = "run publish:ci"
+  runs = "install"
+}
+
+action "nuxt/actions-yarn@master-1" {
+  uses = "nuxt/actions-yarn@master"
+  needs = ["nuxt/actions-yarn@master"]
+  runs = "publish:ci"
   secrets = ["NPM_AUTH_TOKEN"]
 }
