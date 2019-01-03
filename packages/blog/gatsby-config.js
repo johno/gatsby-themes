@@ -13,15 +13,23 @@ module.exports = () => {
         resolve: `gatsby-mdx`,
         options: {
           defaultLayouts: {
-            posts: require.resolve(`./src/components/PostPageLayout.js`)
+            posts: require.resolve(`./src/components/PostPageLayout.js`),
+            default: require.resolve(`./src/components/Layout.js`)
           }
         }
       },
       {
         resolve: `gatsby-source-filesystem`,
         options: {
-          path: `posts`,
+          path: `src/posts`,
           name: `posts`
+        }
+      },
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          path: `src/pages`,
+          name: `pages`
         }
       },
       {

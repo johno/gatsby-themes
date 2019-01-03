@@ -8,7 +8,7 @@
     "now-build": "gatsby build --prefix-paths && mv public dist"
   },
   "dependencies": {
-    "gatsby-theme-minimal-blog": "*",
-    "gatsby": "latest"
+    "gatsby": "latest",
+    "gatsby-theme-minimal-blog": "*"
   }
 }

@@ -1,5 +1,3 @@
-const componentWithMDXScope = require('gatsby-mdx/component-with-mdx-scope')
-
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
 
@@ -38,6 +36,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         result.data.allMdx.edges.forEach(({ node }) => {
           const fallbackPath = `/${node.parent.sourceInstanceName}/${node.parent.name}`
+
           const path = node.frontmatter.path || fallbackPath
 
           if (node.frontmatter.redirects) {
@@ -54,10 +53,7 @@ exports.createPages = ({ graphql, actions }) => {
           createPage({
             path,
             context: node,
-            component: componentWithMDXScope(
-              require.resolve('./src/components/PostPageLayout.js'),
-              node.code.scope
-            )
+            component: require.resolve('./src/components/PostPageLayout.js')
           })
         })
       })

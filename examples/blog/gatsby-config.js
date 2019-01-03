@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   siteMetadata: {
     title: 'Minimal blog theme example',
@@ -8,9 +10,7 @@ module.exports = {
   __experimentalThemes: [
     {
       resolve: 'gatsby-theme-minimal-blog',
-      options: {
-        root: __dirname
-      }
+      options: {}
     }
   ]
 }
