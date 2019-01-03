@@ -1,7 +1,7 @@
 {
   "name": "gatsby-theme-minimal-blog",
   "description": "Minimal gatsby theme for a blog",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "author": "John Otander",
   "scripts": {
@@ -19,7 +19,7 @@
     "gatsby-plugin-page-creator": "^2.0.5",
     "gatsby-plugin-styled-components": "^3.0.4",
     "gatsby-source-filesystem": "^2.0.12",
-    "gatsby-ui": "^0.0.2",
+    "gatsby-ui": "^0.0.3",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "styled-components": "^4.1.3",
