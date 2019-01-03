@@ -27,7 +27,7 @@ action "npm:publish:ci" {
 
 workflow "site" {
   on = "push"
-  resolves = ["site:install"]
+  resolves = ["site:sha-alias"]
 }
 
 action "site:install" {
