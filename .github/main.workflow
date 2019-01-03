@@ -1,6 +1,6 @@
 workflow "publish" {
   on = "push"
-  resolves = ["site:alias", "npm:publish:ci"]
+  resolves = ["npm:publish:ci"]
 }
 
 action "npm:master" {
