@@ -12,8 +12,8 @@
     "gatsby-theme"
   ],
   "dependencies": {
-    "@mdx-js/mdx": "0.16.x",
-    "@mdx-js/tag": "0.16.x",
+    "@mdx-js/mdx": "^0.16.0",
+    "@mdx-js/tag": "^0.16.0",
     "gatsby-mdx": "^0.3.1-ci.239",
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-page-creator": "^2.0.5",
