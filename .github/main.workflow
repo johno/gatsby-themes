@@ -1,4 +1,4 @@
-workflow "npm publish" {
+workflow "publish" {
   on = "push"
   resolves = ["publish:ci"]
 }
