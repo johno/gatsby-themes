@@ -9,8 +9,6 @@ A collection of themes using Gatsby's theming API and an experimental `gatsby-ui
 ## Themes
 
 - `gatsby-theme-minimal-blog`: Minimal blog theme for developers
-- `@johno/gatsby-theme-docs`: Themeable docs site based on a `docs/` directory
-- `@johno/gatsby-theme-unsplash`: Turn your unsplash photos into a gallery
 
 ## `gatsby-theme-minimal-blog`
 
@@ -26,13 +24,3 @@ Option | Default | Description
 ### Customization
 
 In order to customize the theme to your needs you can use component shadowing.
-
-## `@johno/gatsby-theme-docs`
-
-Turn your `docs` directory into a themeable docs site.
-
-Inspired by:
-
-- `x0`
-- `docz`
-- `docusaurus`
