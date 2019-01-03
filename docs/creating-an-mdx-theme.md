@@ -17,6 +17,8 @@
 
 - MDXRenderer doesn't seem to pick up Provider
 - Separation of renderer and query for data backed pages/templates
+- Can't use `__experimentalThemes: ['fooo']` shortcut
+- Theme doesn't work due to lack of transpilation of gatsby-ssr/gatsby-browser
 
 ## Props APIs
 
