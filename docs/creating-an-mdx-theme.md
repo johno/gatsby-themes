@@ -11,7 +11,7 @@
 - define customizable props for long form content/mdx
 - import * as ui from 'theme/ui'; ui.foo = bar; export default ui;
 - difference between path.join and require.resolve for page creator
-
+- theme needs to transpile itself right now
 
 ## Random notes/thoughts/issues
 

@@ -1,3 +1,5 @@
+const path = require('path')
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
 
@@ -58,5 +60,26 @@ exports.createPages = ({ graphql, actions }) => {
         })
       })
     )
+  })
+}
+
+exports.onCreateWebpackConfig = ({ loaders, plugins, actions }) => {
+//  actions.setWebpackConfig({
+//    plugins: [
+//      plugins.provide({
+//        Emotion: require.resolve('@emotion/core'),
+//      }),
+//    ],
+//  })
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          include: path.dirname(require.resolve('gatsby-theme-minimal-blog')),
+          use: [loaders.js()],
+        },
+      ],
+    },
   })
 }
