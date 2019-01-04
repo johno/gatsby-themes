@@ -45,7 +45,6 @@
     "build": "babel src -d dist",
     "format": "remark . -qfo && prettier \"**/*.js\" --write && xo --fix",
     "now-build": "x0 build docs",
-    "postinstall": "rm -rf dist && npm run build",
     "prepublish": "rm -rf dist && npm run build",
     "start": "x0 docs",
     "test": "npm run format && npm run build"
