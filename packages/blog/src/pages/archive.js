@@ -2,8 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Container, Heading } from 'gatsby-ui'
 
-import Layout from '../../components/Layout'
-import PostLink from '../../components/PostLink'
+import Layout from '../components/Layout'
+import PostLink from '../components/PostLink'
 
 function PostList({ data }) {
   const { allMdx: { edges } } = data
