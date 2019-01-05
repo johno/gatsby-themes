@@ -39,6 +39,7 @@ export const query = graphql`
             title
             path
             archived
+            draft
             date(formatString: "MMMM DD, YYYY")
           }
         }
