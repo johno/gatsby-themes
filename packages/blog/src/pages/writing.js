@@ -19,7 +19,7 @@ function PostList({ data }) {
           <PostLink key={post.node.id} post={post.node} />
         ))}
         <Box mt={[4, 4, 5]}>
-          <Link as={GatsbyLink} to="/posts/archive" color="black">Archive</Link>
+          <Link as={GatsbyLink} to="/archive" color="black">Archive</Link>
         </Box>
       </Container>
     </Layout>
