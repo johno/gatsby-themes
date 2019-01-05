@@ -2,11 +2,12 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Container, Heading } from 'gatsby-ui'
 
-import Layout from '../../components/Layout'
-import PostLink from '../../components/PostLink'
+import Layout from '../components/Layout'
+import PostLink from '../components/PostLink'
 
 function PostList({ data }) {
-  const { allMdx: { edges: posts } } = data
+  const { allMdx: { edges } } = data
+  const posts = edges.filter(edge => !edge.node.frontmatter.draft)
 
   return (
     <Layout>
@@ -38,6 +39,7 @@ export const query = graphql`
             title
             path
             archived
+            draft
             date(formatString: "MMMM DD, YYYY")
           }
         }

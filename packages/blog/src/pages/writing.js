@@ -7,7 +7,9 @@ import PostLink from '../components/PostLink'
 
 function PostList({ data }) {
   const { allMdx: { edges } } = data
-  const posts = edges.filter(edge => !edge.node.frontmatter.archived)
+  const posts = edges
+    .filter(edge => !edge.node.frontmatter.archived)
+    .filter(edge => !edge.node.frontmatter.draft)
 
   return (
     <Layout>
@@ -17,7 +19,7 @@ function PostList({ data }) {
           <PostLink key={post.node.id} post={post.node} />
         ))}
         <Box mt={[4, 4, 5]}>
-          <Link as={GatsbyLink} to="/posts/archive" color="black">Archive</Link>
+          <Link as={GatsbyLink} to="/archive" color="black">Archive</Link>
         </Box>
       </Container>
     </Layout>
@@ -42,6 +44,7 @@ export const query = graphql`
             title
             path
             archived
+            draft
             date(formatString: "MMMM DD, YYYY")
           }
         }
