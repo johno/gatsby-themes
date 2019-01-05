@@ -9,6 +9,6 @@
   },
   "dependencies": {
     "gatsby": "latest",
-    "gatsby-theme-minimal-blog": "^0.0.3"
+    "gatsby-theme-minimal-blog": "*"
   }
 }
