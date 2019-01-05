@@ -6,7 +6,8 @@ import Layout from '../../components/Layout'
 import PostLink from '../../components/PostLink'
 
 function PostList({ data }) {
-  const { allMdx: { edges: posts } } = data
+  const { allMdx: { edges } } = data
+  const posts = edges.filter(edge => !edge.node.frontmatter.draft)
 
   return (
     <Layout>
