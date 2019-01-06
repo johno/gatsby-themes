@@ -10,7 +10,12 @@ module.exports = {
   __experimentalThemes: [
     {
       resolve: 'gatsby-theme-minimal-blog',
-      options: {}
+      options: {
+        name: 'johno',
+        githubHandle: 'johno',
+        twitterHandle: '4lpine',
+        layoutVariant: 'sidebar'
+      }
     }
   ]
 }
