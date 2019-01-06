@@ -1,6 +1,7 @@
 const path = require(`path`)
 
-module.exports = () => {
+module.exports = (props) => {
+  console.log(props)
   return {
     siteMetadata: {
       title: `Awesome blog`,
