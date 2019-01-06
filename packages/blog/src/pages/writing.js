@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, Link as GatsbyLink } from 'gatsby'
 import { Box, Container, Heading, Link } from 'gatsby-ui'
 
-import Layout from '../components/Layout'
+import Layout from '../components/SideNavLayout'
 import PostLink from '../components/PostLink'
 
 function PostList({ data }) {
