@@ -25,11 +25,6 @@ action "npm:publish:ci" {
   needs = ["npm:install"]
 }
 
-workflow "site" {
-  on = "push"
-  resolves = ["site:alias"]
-}
-
 action "site:install" {
   uses = "johno/actions-yarn@master"
   args = "install"
