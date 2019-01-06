@@ -1,7 +1,14 @@
 const path = require(`path`)
 
 module.exports = (props) => {
-  console.log(props)
+  let defaultLayout = require.resolve(`./src/components/Layout`)
+  let defaultPostLayout = require.resolve(`./src/components/PostPageLayout`)
+
+  if (props.layoutVariant === 'sidebar') {
+    defaultLayout = require.resolve(`./src/components/SideNavLayout`)
+    defaultPostLayout = require.resolve(`./src/components/SideNavPostPageLayout`)
+  }
+
   return {
     siteMetadata: {
       title: `Awesome blog`,
@@ -14,8 +21,8 @@ module.exports = (props) => {
         resolve: `gatsby-mdx`,
         options: {
           defaultLayouts: {
-            posts: require.resolve(`./src/components/PostPageLayout.js`),
-            default: require.resolve(`./src/components/Layout.js`)
+            posts: defaultPostLayout,
+            default: defaultLayout
           }
         }
       },
