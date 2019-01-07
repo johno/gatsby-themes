@@ -200,6 +200,19 @@ export const colors = {
   ]
 }
 
+const themeColors = {
+  mdx: {
+    h1: colors.black,
+    h2: colors.black,
+    h3: colors.black,
+    h4: colors.black,
+    h5: colors.black,
+    h6: colors.grays[8],
+    p: colors.black,
+    a: colors.blue
+  }
+}
+
 export default {
   fontSizes,
   fontFamilies,
@@ -209,5 +222,5 @@ export default {
 
   space,
 
-  colors
+  colors: { ...colors, ...themeColors }
 }

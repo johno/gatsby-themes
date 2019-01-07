@@ -30,7 +30,9 @@ function Layout({ children }) {
   return (
     <>
       <Container>
-        {children}
+        <Container maxWidth="measureWide">
+          {children}
+        </Container>
       </Container>
       <Footer variant="vertical" />
       <GlobalStyle />

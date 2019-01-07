@@ -22,7 +22,9 @@ function Layout({ children }) {
   return (
     <>
       <Container mt={[3, 4, 5]}>
-        {children}
+        <Container maxWidth="measureWide">
+          {children}
+        </Container>
       </Container>
       <Footer />
       <GlobalStyle />
