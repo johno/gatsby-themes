@@ -8,28 +8,34 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
   }
+  * {
+    box-sizing: border-box;
+  }
   #___gatsby > div {
     display: flex;
-    flex-direction: column;
     min-height: 100vh;
+    width: 100vw;
   }
   #___gatsby > div > div:first-child {
     flex: 1;
   }
+  #___gatsby > div > footer {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    height: 100vh;
+  }
 `
 
-function Layout({ children }) {
-  return (
-    <>
-      <Container mt={[3, 4, 5]}>
-        <Container maxWidth="measureWide">
-          {children}
-        </Container>
+const Layout = ({ children }) => (
+  <>
+    <Container>
+      <Container maxWidth="measureWide">
+        {children}
       </Container>
-      <Footer />
-      <GlobalStyle />
-    </>
-  )
-}
+    </Container>
+    <Footer variant="vertical" />
+    <GlobalStyle />
+  </>
+)
 
 export default Layout

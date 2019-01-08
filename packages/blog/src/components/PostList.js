@@ -4,7 +4,7 @@ import { Box, Link } from 'gatsby-ui'
 
 import PostLink from './PostLink'
 
-function PostList({ data, filters = ['archived'] }) {
+const PostList = ({ data, filters = ['archived'] }) => {
   const { allMdx: { edges } } = data
   const posts = edges.filter(edge => {
     return !filters.some(filter => edge.node.frontmatter[filter])

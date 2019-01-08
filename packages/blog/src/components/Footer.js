@@ -2,8 +2,6 @@ import React from 'react'
 
 import Nav from './Nav'
 
-function Footer(props) {
-  return <Nav as="footer" {...props} />
-}
+const Footer = props => <Nav as="footer" {...props} />
 
 export default Footer

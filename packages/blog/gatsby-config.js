@@ -11,18 +11,18 @@ module.exports = (props) => {
 
   return {
     siteMetadata: {
-      title: `Awesome blog`,
-      author: `John Otander`,
-      description: `A wonderfully, minimal starter blog`,
-      siteUrl: `https://johno.com`,
+      title: `Sideways`,
+      twitterHandle: 'gatsbyjs',
+      githubHandle: 'gatbsjs',
+      siteUrl: `https://gatsbyjs.org`
     },
     plugins: [
       {
         resolve: `gatsby-mdx`,
         options: {
           defaultLayouts: {
-            posts: defaultPostLayout,
-            default: defaultLayout
+            posts: require.resolve(`./src/components/PostPageLayout`),
+            default: require.resolve(`./src/components/Layout`)
           }
         }
       },
