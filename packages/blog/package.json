@@ -4,6 +4,7 @@
   "version": "0.0.3",
   "license": "MIT",
   "author": "John Otander",
+  "main": "gatsby-config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
