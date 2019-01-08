@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "bootstrap": "lerna bootstrap",
+    "publish": "lerna publish",
     "publish:ci": "lerna publish -y --canary --preid ci --npm-tag=ci --force-publish=*"
   },
   "author": "John Otander <johnotander@gmail.com> (http://johnotander.com)",
