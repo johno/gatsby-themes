@@ -8,9 +8,9 @@ A collection of themes using Gatsby's theming API and an experimental `gatsby-ui
 
 ## Themes
 
-- `gatsby-theme-minimal-blog`: Minimal blog theme for developers
+- `gatsby-theme-sideways`: Minimal blog theme for developers with a sideways footer for links
 
-## `gatsby-theme-minimal-blog`
+## `gatsby-theme-sideways`
 
 A minimal blog theme for developers.
 I built this theme for my personal website, <https://johno.com>, but anyone can use and modify however they'd like.
@@ -19,9 +19,7 @@ I built this theme for my personal website, <https://johno.com>, but anyone can 
 
 Option | Default | Description
 --- | --- | ----
-`navLayout` | `side` | Determine nav location (`side`, `top`, `bottom`)
-`colorScheme` | `light` | Determine color scheme (`light` or `dark`)
-`accentColor` | `grays.8` | Accent color for the theme
+`title` | None | Title of your website
 `twitterHandle` | None | Your Twitter handle
 `githubHandle` | None | Your GitHub handle
 

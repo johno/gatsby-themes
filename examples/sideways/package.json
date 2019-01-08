@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "blog",
+  "name": "sideways",
   "version": "0.0.4",
   "scripts": {
     "start": "gatsby develop",
@@ -8,6 +8,6 @@
   },
   "dependencies": {
     "gatsby": "2.0.89",
-    "gatsby-theme-minimal-blog": "^0.0.4"
+    "gatsby-theme-sideways": "*"
   }
 }

@@ -1,12 +1,11 @@
 {
-  "name": "gatsby-theme-minimal-blog",
-  "description": "Minimal gatsby theme for a blog",
+  "name": "gatsby-theme-sideways",
+  "description": "Minimal gatsby theme for a blog with sideways footer",
   "version": "0.0.4",
   "license": "MIT",
   "author": "John Otander",
   "main": "gatsby-config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "gatsby",
@@ -20,7 +19,7 @@
     "gatsby-plugin-page-creator": "^2.0.5",
     "gatsby-plugin-styled-components": "^3.0.4",
     "gatsby-source-filesystem": "^2.0.13",
-    "gatsby-ui": "^0.0.4",
+    "gatsby-ui": "*",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "styled-components": "^4.1.3",
