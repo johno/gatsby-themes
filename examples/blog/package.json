@@ -1,13 +1,13 @@
 {
   "private": true,
   "name": "blog",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build"
   },
   "dependencies": {
     "gatsby": "2.0.89",
-    "gatsby-theme-minimal-blog": "*"
+    "gatsby-theme-minimal-blog": "^0.0.4"
   }
 }
