@@ -1,8 +1,14 @@
 import React from 'react'
-import { Link as GatsbyLink } from 'gatsby'
+import { graphql, StaticQuery, Link as GatsbyLink } from 'gatsby'
 import { Box, Flex, Heading, Text, Link } from 'gatsby-ui'
 
-function Nav({ variant, ...props }) {
+const NavLinks = ({
+  variant,
+  title,
+  twitterHandle,
+  githubHandle,
+  ...props
+}) => {
   const isVertical = variant === 'vertical'
   const logoWrapProps = isVertical ? { my: 3 } : { mx: 3}
   const linkWrapProps = isVertical ? { mb: 4 } : { mr: 4 }
@@ -17,9 +23,7 @@ function Nav({ variant, ...props }) {
         <Flex alignItems="center">
           <Box>
             <Link as={GatsbyLink} to="/" color="grays.8">
-              <Heading fontSize={1}>
-                johno 
-              </Heading>
+              <Heading fontSize={1}>{title || 'hiiiiii'}</Heading>
             </Link>
           </Box>
           <Box {...logoWrapProps}>
@@ -58,16 +62,24 @@ function Nav({ variant, ...props }) {
             </Link>
           </Box>
         </Flex>
-        <Flex>
+        <Flex mb={isVertical ? -3 : 0}>
           <Box {...linkWrapProps}>
-            <Link as={GatsbyLink} to="https://github.com/johno" color="grays.8">
+            <Link
+              as={GatsbyLink}
+              color="grays.8"
+              to={`https://github.com/${githubHandle}`}
+            >
               <Heading fontSize={1}>
                 GitHub
               </Heading>
             </Link>
           </Box>
           <Box {...linkWrapProps}>
-            <Link as={GatsbyLink} to="https://twitter.com/4lpine" color="grays.8">
+            <Link
+              as={GatsbyLink}
+              color="grays.8"
+              to={`https://twitter.com/${twitterHandle}`}
+            >
               <Heading fontSize={1}>
                 Twitter
               </Heading>
@@ -79,4 +91,21 @@ function Nav({ variant, ...props }) {
   )
 }
 
-export default Nav
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            githubHandle
+            twitterHandle
+          }
+        }
+      }
+    `}
+    render={data => (
+      <NavLinks {...props} {...data.site.siteMetadata} />
+    )}
+  />
+)

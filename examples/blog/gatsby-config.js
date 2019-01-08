@@ -2,20 +2,15 @@ const path = require('path')
 
 module.exports = {
   siteMetadata: {
-    title: 'Minimal blog theme example',
-    description: 'Example usage of gatsby-theme-minimal-blog',
-    author: 'John Otander'
+    title: 'johno',
+    twitterHandle: '4lpine',
+    githubHandle: 'johno'
   },
   pathPrefix: '/examples/blog',
   __experimentalThemes: [
     {
       resolve: 'gatsby-theme-minimal-blog',
-      options: {
-        name: 'johno',
-        githubHandle: 'johno',
-        twitterHandle: '4lpine',
-        layoutVariant: 'sidebar'
-      }
+      options: {}
     }
   ]
 }
