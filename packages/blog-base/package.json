@@ -5,8 +5,7 @@
   "license": "MIT",
   "author": "John Otander",
   "main": "gatsby-config.js",
-  "scripts": {
-  },
+  "scripts": {},
   "keywords": [
     "gatsby",
     "gatsby-theme"
@@ -18,6 +17,7 @@
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-page-creator": "^2.0.5",
     "gatsby-source-filesystem": "^2.0.13",
+    "lodash.kebabcase": "^4.1.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "styled-components": "^4.1.3",
