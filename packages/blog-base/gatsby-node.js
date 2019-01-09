@@ -63,7 +63,7 @@ exports.createPages = ({ graphql, actions }) => {
   })
 }
 
-exports.onCreateWebpackConfig = ({ loaders, plugins, actions }) => {
+exports.onCreateWebpackConfig = ({ loaders, actions }) => {
   actions.setWebpackConfig({
     module: {
       rules: [
