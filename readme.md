@@ -1,5 +1,7 @@
 # Gatsby themes
 
+> :warning: Please note that these themes are currently deemed unstable and can have breaking changes
+
 A collection of themes using Gatsby's theming API and an experimental `gatsby-ui` library.
 
 ## Libraries
