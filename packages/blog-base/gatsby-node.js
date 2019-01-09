@@ -1,63 +1,63 @@
 const path = require('path')
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
 
-  return new Promise((resolve, reject) => {
-    resolve(
-      graphql(`
-        {
-          allMdx {
-            edges {
-              node {
-                id
-                parent {
-                  ... on File {
-                    name
-                    sourceInstanceName
-                  }
-                }
-                frontmatter {
-                  redirects
-                  path
-                }
-                code {
-                  scope
-                }
+  const result = await graphql(`
+    {
+      mdxPages: allMdx {
+        edges {
+          node {
+            id
+            parent {
+              ... on File {
+                name
+                sourceInstanceName
               }
+            }
+            frontmatter {
+              redirects
+              path
+            }
+            code {
+              scope
             }
           }
         }
-      `).then(result => {
-        if (result.errors) {
-          console.log(result.errors)
-          reject(result.errors)
-        }
+      }
+    }
+  `)
 
-        result.data.allMdx.edges.forEach(({ node }) => {
-          const fallbackPath = `/${node.parent.sourceInstanceName}/${node.parent.name}`
+  if (result.errors) {
+    console.log(result.errors)
+    throw new Error('Could not query posts', result.errors)
+  }
 
-          const path = node.frontmatter.path || fallbackPath
+  console.log(result)
 
-          if (node.frontmatter.redirects) {
-            node.frontmatter.redirects.forEach(fromPath => {
-              createRedirect({
-                fromPath,
-                toPath: path,
-                redirectInBrowser: true,
-                isPermanent: true
-              })
-            })
-          }
+  const { mdxPages } = result.data
 
-          createPage({
-            path,
-            context: node,
-            component: require.resolve('./src/components/PostPageLayout.js')
-          })
+  mdxPages.edges.forEach(({ node }) => {
+    const fallbackPath = `/${node.parent.sourceInstanceName}/${node.parent.name}`
+
+    const path = node.frontmatter.path || fallbackPath
+
+    if (node.frontmatter.redirects) {
+      node.frontmatter.redirects.forEach(fromPath => {
+        createRedirect({
+          fromPath,
+          toPath: path,
+          redirectInBrowser: true,
+          isPermanent: true
         })
       })
-    )
+    }
+
+    createPage({
+      path,
+      context: node,
+      component: require.resolve('./src/components/PostPageLayout.js')
+    })
   })
 }
 
