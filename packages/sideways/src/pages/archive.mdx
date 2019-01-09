@@ -13,7 +13,6 @@ export const query = graphql`
     allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
-          id
           parent {
             ... on File {
               name

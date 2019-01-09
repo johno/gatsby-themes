@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-const toPath = ({ frontmatter, parent = {} }) => {
+export const toPath = ({ frontmatter, parent = {} }) => {
   if (frontmatter.path) {
     return frontmatter.path
   }
