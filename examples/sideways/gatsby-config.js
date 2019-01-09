@@ -9,7 +9,7 @@ module.exports = {
   pathPrefix: '/examples/blog',
   __experimentalThemes: [
     {
-      resolve: 'gatsby-theme-minimal-blog',
+      resolve: 'gatsby-theme-sideways',
       options: {}
     }
   ]

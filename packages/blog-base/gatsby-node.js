@@ -5,32 +5,30 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     resolve(
-      graphql(
-        `
-          {
-            allMdx {
-              edges {
-                node {
-                  id
-                  parent {
-                    ... on File {
-                      name
-                      sourceInstanceName
-                    }
+      graphql(`
+        {
+          allMdx {
+            edges {
+              node {
+                id
+                parent {
+                  ... on File {
+                    name
+                    sourceInstanceName
                   }
-                  frontmatter {
-                    redirects
-                    path
-                  }
-                  code {
-                    scope
-                  }
+                }
+                frontmatter {
+                  redirects
+                  path
+                }
+                code {
+                  scope
                 }
               }
             }
           }
-        `
-      ).then(result => {
+        }
+      `).then(result => {
         if (result.errors) {
           console.log(result.errors)
           reject(result.errors)
@@ -63,13 +61,13 @@ exports.createPages = ({ graphql, actions }) => {
   })
 }
 
-exports.onCreateWebpackConfig = ({ loaders, plugins, actions }) => {
+exports.onCreateWebpackConfig = ({ loaders, actions }) => {
   actions.setWebpackConfig({
     module: {
       rules: [
         {
           test: /\.js$/,
-          include: path.dirname(require.resolve('gatsby-theme-sideways')),
+          include: path.dirname(require.resolve('gatsby-theme-blog-base')),
           use: [loaders.js()],
         },
       ],
