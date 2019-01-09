@@ -1,0 +1,43 @@
+import { Link, graphql } from 'gatsby'
+
+import PostList from '../components/PostList'
+
+# Writing
+
+<PostList {...props} />
+
+<Link to="/archive">Archive</Link>
+
+export const query = graphql`
+  query {
+    allMdx(
+      sort: {
+        order: DESC,
+        fields: [frontmatter___date]
+      }
+      filter: {
+        frontmatter: {
+          draft: { ne: true }
+          archived: { ne: true }
+        }
+      }
+    ) {
+      edges {
+        node {
+          id
+          parent {
+            ... on File {
+              name
+              sourceInstanceName
+            }
+          }
+          frontmatter {
+            title
+            path
+            date(formatString: "MMMM DD, YYYY")
+          }
+        }
+      }
+    }
+  }
+`

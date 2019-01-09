@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 
 import PostPageRenderer from './PostPageRenderer'
 
-const PostPageLayout = props => <PostPageRenderer {...props} />
+const PostPageLayout = props =><PostPageRenderer {...props} />
 
 export default PostPageLayout
 
