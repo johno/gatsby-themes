@@ -13,7 +13,7 @@ const TagPageLayout = props => (
 export default TagPageLayout
 
 export const pageQuery = graphql`
-  query {
+  query TagPage($tag: String) {
     allMdx(
       sort: {
         fields: [frontmatter___date],
@@ -21,7 +21,7 @@ export const pageQuery = graphql`
       }
       filter: {
         frontmatter: {
-        	tags: { in: ["hello"] }
+        	tags: { in: [$tag] }
           draft: { ne: true }
         }
       }

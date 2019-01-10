@@ -1,6 +1,8 @@
 const path = require('path')
 const kebab = require('lodash.kebabcase')
 
+const PostListPage = require.resolve('./src/components/PostListPageLayout')
+const PostPage = require.resolve('./src/components/PostPageLayout')
 const TagPage = require.resolve('./src/components/TagPageLayout')
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -8,7 +10,18 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
-      mdxPages: allMdx {
+      mdxPages: allMdx(
+        sort: {
+          fields: [frontmatter___date]
+          order: DESC
+        }
+        filter: {
+          frontmatter: {
+            draft: { ne: true }
+            archived: { ne: true }
+          }
+        }
+      ) {
         edges {
           node {
             id
@@ -66,7 +79,39 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path,
       context: node,
-      component: require.resolve('./src/components/PostPageLayout.js')
+      component: PostPage
+    })
+  })
+
+  // Create post list pages
+  const posts = mdxPages.edges
+  const postsPerPage = 5
+  const numPages = Math.ceil(posts.length / postsPerPage)
+  Array.from({ length: numPages }).forEach((_, i) => {
+    const limit = postsPerPage
+    const skip = i * postsPerPage
+    const currentPage = i + 1
+
+    const isFirst = currentPage === 1
+    const isLast = currentPage === numPages
+
+    const nextPage = isLast ? null : `/blog/${currentPage + 1}`
+    const prevPage = isFirst ? null : `/blog/${
+      currentPage - 1 === 1 ? '' : currentPage - 1
+    }`
+
+    createPage({
+      path: isFirst ? '/blog' : `/blog/${currentPage}`,
+      component: PostListPage,
+      context: {
+        limit,
+        skip,
+        currentPage,
+        isFirst,
+        isLast,
+        nextPage,
+        prevPage
+      }
     })
   })
 
@@ -90,9 +135,9 @@ exports.onCreateWebpackConfig = ({ loaders, actions }) => {
         {
           test: /\.js$/,
           include: path.dirname(require.resolve('gatsby-theme-blog-base')),
-          use: [loaders.js()],
-        },
-      ],
-    },
+          use: [loaders.js()]
+        }
+      ]
+    }
   })
 }
