@@ -1,19 +1,35 @@
+import React from 'react'
 import { Link, graphql } from 'gatsby'
 
-import PostList from '../components/PostList'
+import PostList from './PostList'
 
-# Writing
+const PostListPageLayout = ({
+  pathContext: {
+    isFirst,
+    isLast,
+    nextPage,
+    prevPage,
+  },
+  ...props
+}) => (
+  <>
+    <PostList {...props} />
 
-<PostList {...props} />
+    {isFirst ? null : <Link to={prevPage}>Previous</Link>}
+    {isLast ? null : <Link to={nextPage}>Next</Link>}
+  </>
+)
 
-<Link to="/archive">Archive</Link>
+export default PostListPageLayout
 
-export const query = graphql`
-  query {
+export const pageQuery = graphql`
+  query PostList($limit: Int, $skip: Int) {
     allMdx(
+      limit: $limit
+      skip: $skip
       sort: {
-        order: DESC,
         fields: [frontmatter___date]
+        order: DESC
       }
       filter: {
         frontmatter: {
