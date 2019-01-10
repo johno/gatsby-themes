@@ -6,6 +6,9 @@ module.exports = props => {
       title: 'Gatsby Blog',
       siteUrl: 'https://gatsbyjs.org'
     },
+    mapping: {
+      'Mdx.frontmatter.author': 'AuthorYaml'
+    },
     plugins: [
       {
         resolve: 'gatsby-mdx',
@@ -36,6 +39,15 @@ module.exports = props => {
           path: path.join(__dirname, './src/pages')
         }
       },
+      {
+        resolve: 'gatsby-source-filesystem',
+        options: {
+          name: 'data',
+          path: path.join(__dirname, './src/data'),
+          ignore: ['**/\.*']
+        },
+      },
+      'gatsby-transformer-yaml',
       'gatsby-plugin-meta-redirect'
     ]
   }
