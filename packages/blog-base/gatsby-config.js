@@ -6,6 +6,9 @@ module.exports = props => {
       title: 'Gatsby Blog',
       siteUrl: 'https://gatsbyjs.org'
     },
+    mapping: {
+      'Mdx.frontmatter.author': 'AuthorYaml'
+    },
     plugins: [
       {
         resolve: 'gatsby-mdx',
