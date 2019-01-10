@@ -1,12 +1,16 @@
+const fs = require('fs')
 const path = require('path')
+const mkdirp = require('mkdirp')
 const kebab = require('lodash.kebabcase')
 
 const PostListPage = require.resolve('./src/components/PostListPageLayout')
 const PostPage = require.resolve('./src/components/PostPageLayout')
 const TagPage = require.resolve('./src/components/TagPageLayout')
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }, pluginOptions) => {
   const { createPage, createRedirect } = actions
+
+  const { postPath = '/blog', postsPerPage = 9999 } = pluginOptions
 
   const result = await graphql(`
     {
@@ -85,7 +89,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create post list pages
   const posts = mdxPages.edges
-  const postsPerPage = 5
   const numPages = Math.ceil(posts.length / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     const limit = postsPerPage
@@ -95,13 +98,13 @@ exports.createPages = async ({ graphql, actions }) => {
     const isFirst = currentPage === 1
     const isLast = currentPage === numPages
 
-    const nextPage = isLast ? null : `/blog/${currentPage + 1}`
-    const prevPage = isFirst ? null : `/blog/${
+    const nextPage = isLast ? null : `/${postPath}/${currentPage + 1}`
+    const prevPage = isFirst ? null : `/${postPath}/${
       currentPage - 1 === 1 ? '' : currentPage - 1
     }`
 
     createPage({
-      path: isFirst ? '/blog' : `/blog/${currentPage}`,
+      path: isFirst ? `/${postPath}` : `/${postPath}/${currentPage}`,
       component: PostListPage,
       context: {
         limit,
@@ -125,6 +128,22 @@ exports.createPages = async ({ graphql, actions }) => {
         tag
       }
     })
+  })
+}
+
+exports.onPreBootstrap = ({ store }) => {
+  const { program } = store.getState()
+
+  const dirs = [
+    path.join(program.directory, 'src/pages'),
+    path.join(program.directory, 'src/posts'),
+    path.join(program.directory, 'src/data')
+  ]
+
+  dirs.forEach(dir => {
+    if (!fs.existsSync(dir)) {
+      mkdirp.sync(dir)
+    }
   })
 }
 
