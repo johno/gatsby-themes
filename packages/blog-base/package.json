@@ -19,6 +19,7 @@
     "gatsby-source-filesystem": "^2.0.13",
     "gatsby-transformer-yaml": "^2.1.7",
     "lodash.kebabcase": "^4.1.1",
+    "mkdirp": "^0.5.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "styled-components": "^4.1.3",
