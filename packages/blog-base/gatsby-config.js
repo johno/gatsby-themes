@@ -36,6 +36,15 @@ module.exports = props => {
           path: path.join(__dirname, './src/pages')
         }
       },
+      {
+        resolve: 'gatsby-source-filesystem',
+        options: {
+          name: 'data',
+          path: path.join(__dirname, './src/data'),
+          ignore: ['**/\.*']
+        },
+      },
+      'gatsby-transformer-yaml',
       'gatsby-plugin-meta-redirect'
     ]
   }
