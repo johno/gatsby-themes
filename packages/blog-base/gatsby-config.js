@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = ({ defaultLayouts = {} } = {}) => {
   const themeLayouts = {
-    posts: require.resolve('./src/components/PostPageLayout'),
+    posts: require.resolve('./src/components/templates/Post'),
     default: require.resolve('./src/components/Layout')
   }
 
@@ -29,13 +29,6 @@ module.exports = ({ defaultLayouts = {} } = {}) => {
         options: {
           path: 'src/posts',
           name: 'posts'
-        }
-      },
-      {
-        resolve: 'gatsby-source-filesystem',
-        options: {
-          path: 'src/pages',
-          name: 'pages'
         }
       },
       {

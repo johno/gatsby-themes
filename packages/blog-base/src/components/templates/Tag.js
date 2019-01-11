@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 
-import PostList from './PostList'
+import PostList from '../PostList'
 
 const TagPageLayout = props => (
   <>
