@@ -14,8 +14,11 @@ yarn add gatsby-theme-redirects
 // gatsby-config.js
 module.exports = {
   return {
-    plugins: [
-      'gatsby-theme-redirects'
+    __experimentalThemes: [
+      {
+        resolve: 'gatsby-theme-redirects',
+        options: {}
+      }
     ]
   }
 }
