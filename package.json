@@ -6,7 +6,8 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "publish": "lerna publish",
-    "publish:ci": "lerna publish -y --canary --preid ci --npm-tag=ci --force-publish=* || git status"
+    "publish:ci": "lerna publish -y --canary --preid ci --npm-tag=ci --force-publish=* || git status",
+    "ctheme": "yarn workspace gatsby build && rm -rf examples/sideways/node_modules && rm -rf examples/sideways/.cache && yarn && yarn workspace sideways start"
   },
   "author": "John Otander <johnotander@gmail.com> (http://johnotander.com)",
   "contributors": [
@@ -14,7 +15,8 @@
   ],
   "workspaces": [
     "packages/*",
-    "examples/*"
+    "examples/*",
+    "gatsby/packages/gatsby"
   ],
   "dependencies": {
     "lerna": "^3.10.0"

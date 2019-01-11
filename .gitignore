@@ -4,3 +4,5 @@ dist
 *.swp
 .cache
 public
+
+gatsby
