@@ -10,8 +10,6 @@ const TagPage = require.resolve('./src/components/TagPageLayout')
 exports.createPages = async ({ graphql, actions }, pluginOptions) => {
   const { createPage, createRedirect } = actions
 
-  console.log(pluginOptions)
-
   const {
     postsPath = '/blog',
     postsPerPage = 9999
