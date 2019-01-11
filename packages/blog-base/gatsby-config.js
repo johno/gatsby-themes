@@ -1,6 +1,11 @@
 const path = require('path')
 
-module.exports = props => {
+module.exports = ({ defaultLayouts = {} } = {}) => {
+  const themeLayouts = {
+    posts: require.resolve('./src/components/PostPageLayout'),
+    default: require.resolve('./src/components/Layout')
+  }
+
   return {
     siteMetadata: {
       title: 'Gatsby Blog',
@@ -14,8 +19,8 @@ module.exports = props => {
         resolve: 'gatsby-mdx',
         options: {
           defaultLayouts: {
-            posts: require.resolve('./src/components/PostPageLayout'),
-            default: require.resolve('./src/components/Layout')
+            ...themeLayouts,
+            ...defaultLayouts
           }
         }
       },

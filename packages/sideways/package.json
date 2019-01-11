@@ -12,13 +12,8 @@
     "gatsby-theme"
   ],
   "dependencies": {
-    "@mdx-js/mdx": "^0.16.6",
-    "@mdx-js/tag": "^0.16.6",
-    "gatsby-mdx": "^0.3.3",
-    "gatsby-plugin-meta-redirect": "^1.1.1",
-    "gatsby-plugin-page-creator": "^2.0.5",
+    "gatsby-theme-blog-base": "*",
     "gatsby-plugin-styled-components": "^3.0.4",
-    "gatsby-source-filesystem": "^2.0.13",
     "gatsby-ui": "*",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",

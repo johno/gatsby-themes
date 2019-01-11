@@ -10,7 +10,10 @@ const TagPage = require.resolve('./src/components/TagPageLayout')
 exports.createPages = async ({ graphql, actions }, pluginOptions) => {
   const { createPage, createRedirect } = actions
 
-  const { postPath = '/blog', postsPerPage = 9999 } = pluginOptions
+  const {
+    postsPath = '/blog',
+    postsPerPage = 9999
+  } = pluginOptions
 
   const result = await graphql(`
     {
@@ -66,7 +69,6 @@ exports.createPages = async ({ graphql, actions }, pluginOptions) => {
   // Create post pages and redirects
   mdxPages.edges.forEach(({ node }) => {
     const fallbackPath = `/${node.parent.sourceInstanceName}/${node.parent.name}`
-
     const path = node.frontmatter.path || fallbackPath
 
     if (node.frontmatter.redirects) {
@@ -98,13 +100,13 @@ exports.createPages = async ({ graphql, actions }, pluginOptions) => {
     const isFirst = currentPage === 1
     const isLast = currentPage === numPages
 
-    const nextPage = isLast ? null : `/${postPath}/${currentPage + 1}`
-    const prevPage = isFirst ? null : `/${postPath}/${
+    const nextPage = isLast ? null : `${postsPath}/${currentPage + 1}`
+    const prevPage = isFirst ? null : `${postsPath}/${
       currentPage - 1 === 1 ? '' : currentPage - 1
     }`
 
     createPage({
-      path: isFirst ? `/${postPath}` : `/${postPath}/${currentPage}`,
+      path: isFirst ? postsPath : `${postsPath}/${currentPage}`,
       component: PostListPage,
       context: {
         limit,
