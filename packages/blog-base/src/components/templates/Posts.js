@@ -1,26 +1,20 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
-import PostList from './PostList'
+import PostList from '../PostList'
+import Pagination from '../Pagination'
 
-const PostListPageLayout = ({
-  pathContext: {
-    isFirst,
-    isLast,
-    nextPage,
-    prevPage,
-  },
+const Posts = ({
+  pathContext,
   ...props
 }) => (
   <>
     <PostList {...props} />
-
-    {isFirst ? null : <Link to={prevPage}>Previous</Link>}
-    {isLast ? null : <Link to={nextPage}>Next</Link>}
+    <Pagination {...pathContext} />
   </>
 )
 
-export default PostListPageLayout
+export default Posts
 
 export const pageQuery = graphql`
   query PostList($limit: Int, $skip: Int) {

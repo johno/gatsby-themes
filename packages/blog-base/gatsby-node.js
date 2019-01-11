@@ -3,9 +3,9 @@ const path = require('path')
 const mkdirp = require('mkdirp')
 const kebab = require('lodash.kebabcase')
 
-const PostListPage = require.resolve('./src/components/PostListPageLayout')
-const PostPage = require.resolve('./src/components/PostPageLayout')
-const TagPage = require.resolve('./src/components/TagPageLayout')
+const Posts = require.resolve('./src/components/templates/Posts')
+const Post = require.resolve('./src/components/templates/Post')
+const Tag = require.resolve('./src/components/templates/Tag')
 
 exports.createPages = async ({ graphql, actions }, pluginOptions) => {
   const { createPage, createRedirect } = actions
@@ -85,7 +85,7 @@ exports.createPages = async ({ graphql, actions }, pluginOptions) => {
     createPage({
       path,
       context: node,
-      component: PostPage
+      component: Post
     })
   })
 
@@ -107,7 +107,7 @@ exports.createPages = async ({ graphql, actions }, pluginOptions) => {
 
     createPage({
       path: isFirst ? postsPath : `${postsPath}/${currentPage}`,
-      component: PostListPage,
+      component: Posts,
       context: {
         limit,
         skip,
@@ -125,7 +125,7 @@ exports.createPages = async ({ graphql, actions }, pluginOptions) => {
 
     createPage({
       path,
-      component: TagPage,
+      component: Tag,
       context: {
         tag
       }

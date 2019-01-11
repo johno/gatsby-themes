@@ -1,11 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import PostPageRenderer from './PostPageRenderer'
+import Post from '../Post'
 
-const PostPageLayout = props => <PostPageRenderer {...props} />
-
-export default PostPageLayout
+export default props => <Post {...props} />
 
 export const pageQuery = graphql`
   query($id: String!) {
