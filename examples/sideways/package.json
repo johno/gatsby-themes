@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "gatsby": "*",
+    "gatsby-theme-redirects": "*",
     "gatsby-theme-sideways": "*"
   }
 }

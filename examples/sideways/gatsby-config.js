@@ -11,6 +11,10 @@ module.exports = {
     {
       resolve: 'gatsby-theme-sideways',
       options: {}
+    },
+    {
+      resolve: 'gatsby-theme-redirects',
+      options: {}
     }
   ]
 }
