@@ -26,5 +26,5 @@ module.exports = {
 - from: /foo
   to: /bar
 - from: /baz
-- to: /other
+  to: /other
 ```
