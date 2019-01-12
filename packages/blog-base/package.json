@@ -17,6 +17,7 @@
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-page-creator": "^2.0.5",
     "gatsby-source-filesystem": "^2.0.13",
+    "gatsby-transformer-react-docgen": "^3.0.0",
     "gatsby-transformer-yaml": "^2.1.7",
     "lodash.kebabcase": "^4.1.1",
     "mkdirp": "^0.5.1",

@@ -16,9 +16,13 @@
   "workspaces": [
     "packages/*",
     "examples/*",
-    "gatsby/packages/gatsby"
+    "gatsby/packages/gatsby",
+    "gatsby/packages/gatsby-transformer-react-docgen"
   ],
   "dependencies": {
     "lerna": "^3.10.0"
+  },
+  "resolutions": {
+    "graphql": "version"
   }
 }

@@ -45,8 +45,16 @@ module.exports = ({ defaultLayouts = {} } = {}) => {
           ignore: ['**/\.*']
         },
       },
+      {
+        resolve: 'gatsby-source-filesystem',
+        options: {
+          name: 'components',
+          path: path.join(__dirname, './src/components')
+        }
+      },
       'gatsby-transformer-yaml',
-      'gatsby-plugin-meta-redirect'
+      'gatsby-plugin-meta-redirect',
+      'gatsby-transformer-react-docgen'
     ]
   }
 }
