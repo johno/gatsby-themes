@@ -10,9 +10,11 @@ import {
   order,
   space,
   textAlign,
-  width
+  width,
+  propTypes
 } from 'styled-system'
 
+/** @component */
 export const Box = styled.div`
   box-sizing: border-box;
 
@@ -30,14 +32,16 @@ export const Box = styled.div`
 
 Box.displayName = 'gatsby-ui.Box'
 Box.propTypes = {
-  ...alignSelf.propTypes,
-  ...borderColor.propTypes,
-  ...boxShadow.propTypes,
-  ...color.propTypes,
-  ...display.propTypes,
-  ...flex.propTypes,
-  ...order.propTypes,
-  ...space.propTypes,
-  ...textAlign.propTypes,
-  ...width.propTypes
+  as: propTypes.responsive,
+  alignSelf: propTypes.responsive,
+  bg: propTypes.responsive,
+  borderColor: propTypes.responsive,
+  boxShadow: propTypes.responsive,
+  color: propTypes.responsive,
+  display: propTypes.responsive,
+  flex: propTypes.responsive,
+  order: propTypes.responsive,
+  textAlign: propTypes.responsive,
+  width: propTypes.responsive,
+  ...space.propTypes
 }

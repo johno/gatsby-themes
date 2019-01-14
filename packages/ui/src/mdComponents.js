@@ -12,6 +12,9 @@ import {
   ListItem
 } from '.'
 
+/**
+ * MDX component mapping to be passed to the MDXProvider at the layout level
+ */
 export default {
   h1: props => <Heading as="h1" color="mdx.h1" mb={3} fontSize={5} {...props} />,
   h2: props => <Heading as="h2" color="mdx.h2" mt={4} mb={3} fontSize={4} {...props} />,

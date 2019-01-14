@@ -7,11 +7,13 @@ import {
   fontWeight,
   lineHeight,
   space,
-  textAlign
+  textAlign,
+  propTypes
 } from 'styled-system'
 
 import {fontFamilies} from './theme'
 
+/** @component */
 export const Text = styled.p`
   font-family: ${fontFamilies.sans};
 
@@ -30,14 +32,17 @@ Text.defaultProps = {
   lineHeight: 'copy'
 }
 Text.propTypes = {
-  ...color.propTypes,
-  ...fontSize.propTypes,
-  ...fontWeight.propTypes,
-  ...lineHeight.propTypes,
-  ...space.propTypes,
-  ...textAlign.propTypes
+  as: PropTypes.string,
+  bg: propTypes.responsive,
+  color: propTypes.responsive,
+  fontSize: propTypes.responsive,
+  fontWeight: propTypes.responsive,
+  lineHeight: propTypes.responsive,
+  textAlign: propTypes.responsive,
+  ...space.propTypes
 }
 
+/** @component */
 export const Code = styled(Text)`
   font-family: ${fontFamilies.mono};
 
@@ -53,11 +58,13 @@ Code.defaultProps = {
   px: 2
 }
 Code.propTypes = {
-  ...color.propTypes,
-  ...fontSize.propTypes,
-  ...fontWeight.propTypes,
-  ...lineHeight.propTypes,
-  ...space.propTypes,
-  ...textAlign.propTypes,
-  ...borderRadius.propTypes
+  as: PropTypes.string,
+  bg: propTypes.responsive,
+  borderRadius: propTypes.responsive,
+  color: propTypes.responsive,
+  fontSize: propTypes.responsive,
+  fontWeight: propTypes.responsive,
+  lineHeight: propTypes.responsive,
+  textAlign: propTypes.responsive,
+  ...space.propTypes
 }

@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "docs",
+  "version": "0.0.4",
+  "scripts": {
+    "start": "gatsby develop",
+    "build": "gatsby build"
+  },
+  "dependencies": {
+    "gatsby": "*",
+    "gatsby-theme-docs": "*"
+  },
+  "resolutions": {
+    "react-docgen": "3.0.0-rc.2"
+  }
+}
