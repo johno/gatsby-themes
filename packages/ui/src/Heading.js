@@ -6,11 +6,13 @@ import {
   fontWeight,
   lineHeight,
   space,
-  textAlign
+  textAlign,
+  propTypes
 } from 'styled-system'
 
 import {fontFamilies} from './theme'
 
+/** @component */
 export const Heading = styled.h3`
   font-family: ${fontFamilies.sans};
 
@@ -30,10 +32,11 @@ Heading.defaultProps = {
   lineHeight: 'title'
 }
 Heading.propTypes = {
-  ...color.propTypes,
-  ...fontSize.propTypes,
-  ...fontWeight.propTypes,
-  ...lineHeight.propTypes,
-  ...space.propTypes,
-  ...textAlign.propTypes
+  as: propTypes.numberOrString,
+  color: propTypes.responsive,
+  fontSize: propTypes.responsive,
+  fontWeight: propTypes.responsive,
+  lineHeight: propTypes.responsive,
+  textAlign: propTypes.responsive,
+  ...space.propTypes
 }

@@ -6,6 +6,9 @@ import {MDXProvider} from '@mdx-js/tag'
 import theme from './theme'
 import mdComponents from './mdComponents'
 
+/**
+ * Gatsby UI provider that handles theming and MDX component mapping
+ */
 export const Provider = ({children}) => (
   <ThemeProvider theme={theme}>
     <MDXProvider components={mdComponents}>
@@ -13,8 +16,11 @@ export const Provider = ({children}) => (
     </MDXProvider>
   </ThemeProvider>
 )
-Provider.propTypes = {
-  children: PropTypes.node.isRequired
-}
 
 Provider.displayName = 'gatsby-ui.Provider'
+Provider.propTypes = {
+  /**
+   * App component to be wrapped with default providers
+   */
+  children: PropTypes.node.isRequired
+}

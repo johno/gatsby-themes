@@ -3,6 +3,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+/**
+ * Spectrum component that's handled specially since it isn't currently
+ * on icon.now.sh
+ */
 export const Spectrum = ({size}) => (
   <svg viewBox="0 0 16 16" width={size} height={size}>
     <g>
@@ -11,10 +15,13 @@ export const Spectrum = ({size}) => (
   </svg>
 )
 
-Spectrum.displayName = 'unified.icons.Spectrum'
+Spectrum.displayName = 'gatsby-ui.icons.Spectrum'
 Spectrum.defaultProps = {
   size: 64
 }
 Spectrum.propTypes = {
+  /**
+   * Size of the SVG
+   */
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }

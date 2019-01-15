@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 
 const theme = {
@@ -101,10 +102,10 @@ const theme = {
   ]
 }
 
-
-export const CodeBlock = ({ children, ...props }) => {
-  console.log(children)
-  console.log(props)
+/**
+ * Codeblock component for syntax highlighting
+ */
+export const CodeBlock = ({ children }) => {
   return (
     <Highlight language="js" {...defaultProps} theme={theme} code={children.trim()}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
@@ -123,4 +124,12 @@ export const CodeBlock = ({ children, ...props }) => {
       )}
     </Highlight>
   )
+}
+
+CodeBlock.displayName = 'gatsby-ui.CodeBlock'
+CodeBlock.propTypes = {
+  /**
+   * Code string to be highlighted
+   */
+  children: PropTypes.string
 }

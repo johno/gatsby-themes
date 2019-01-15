@@ -6,7 +6,7 @@ module.exports = {
     twitterHandle: '4lpine',
     githubHandle: 'johno'
   },
-  pathPrefix: '/examples/blog',
+  pathPrefix: '/examples/sideways',
   __experimentalThemes: [
     {
       resolve: 'gatsby-theme-sideways',

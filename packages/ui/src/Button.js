@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
-import {color, space, fontSize, fontWeight} from 'styled-system'
+import {color, space, fontSize, fontWeight, propTypes} from 'styled-system'
 
+/** @component */
 export const Button = styled.button`
   appearance: none;
   border: none;
@@ -23,4 +24,12 @@ Button.defaultProps = {
   px: 4,
   fontWeight: 'bold',
   fontSize: 2
+}
+Button.propTypes = {
+  as: propTypes.numberOrString,
+  bg: propTypes.responsive,
+  color: propTypes.responsive,
+  fontWeight: propTypes.responsive,
+  fontSize: propTypes.responsive,
+  ...space.propTypes
 }

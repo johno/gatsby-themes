@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
-import {borderColor, color, space, fontSize, width} from 'styled-system'
+import {borderColor, color, space, fontSize, width, propTypes} from 'styled-system'
 
 import {colors} from './theme'
 
+/** @component */
 export const Input = styled.input`
   appearance: none;
   border: thin solid;
@@ -31,4 +32,13 @@ Input.defaultProps = {
   borderColor: 'grays.1',
   p: 2,
   fontSize: 2
+}
+Input.propTypes = {
+  as: propTypes.numberOrString,
+  bg: propTypes.responsive,
+  borderColor: propTypes.responsive,
+  color: propTypes.responsive,
+  fontSize: propTypes.responsive,
+  width: propTypes.responsive,
+  ...space.propTypes
 }

@@ -1,7 +1,8 @@
 import styled from 'styled-components'
-import {borderColor} from 'styled-system'
+import {borderColor, space, propTypes} from 'styled-system'
 import {Text} from './Text'
 
+/** @component */
 export const Blockquote = styled(Text)`
   border-left: 4px solid;
 
@@ -21,6 +22,17 @@ export const Blockquote = styled(Text)`
 `
 
 Blockquote.displayName = 'gatsby-ui.Blockquote'
+Blockquote.propTypes = {
+  as: PropTypes.string,
+  bg: propTypes.responsive,
+  borderColor: propTypes.responsive,
+  color: propTypes.responsive,
+  fontSize: propTypes.responsive,
+  fontWeight: propTypes.responsive,
+  lineHeight: propTypes.responsive,
+  textAlign: propTypes.responsive,
+  ...space.propTypes
+}
 Blockquote.defaultProps = {
   as: 'blockquote',
   borderColor: 'grays.2',

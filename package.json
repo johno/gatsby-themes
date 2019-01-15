@@ -15,10 +15,12 @@
   ],
   "workspaces": [
     "packages/*",
-    "examples/*",
-    "gatsby/packages/gatsby"
+    "examples/*"
   ],
   "dependencies": {
     "lerna": "^3.10.0"
+  },
+  "resolutions": {
+    "react-docgen": "3.0.0-rc.2"
   }
 }

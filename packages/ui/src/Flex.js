@@ -7,9 +7,11 @@ import {
   height,
   justifyContent,
   space,
-  width
+  width,
+  propTypes
 } from 'styled-system'
 
+/** @component */
 export const Flex = styled.div`
   box-sizing: border-box;
   display: flex;
@@ -24,3 +26,13 @@ export const Flex = styled.div`
 `
 
 Flex.displayName = 'gatsby-ui.Flex'
+Flex.propTypes = {
+  as: propTypes.numberOrString,
+  alignItems: propTypes.responsive,
+  flexDirection: propTypes.responsive,
+  flexWrap: propTypes.responsive,
+  height: propTypes.responsive,
+  justifyContent: propTypes.responsive,
+  width: propTypes.responsive,
+  ...space.propTypes
+}

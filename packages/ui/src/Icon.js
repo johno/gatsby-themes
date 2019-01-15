@@ -4,6 +4,9 @@ import {Spectrum} from './icons/Spectrum'
 
 const URL_BASE = 'https://icon.now.sh'
 
+/**
+ * Icon component using icon.now.sh
+ */
 export const Icon = ({name, color = '#000', size = 64, ...props}) => {
   if (name === 'spectrum') {
     return <Spectrum color={color} size={size} {...props} />
@@ -18,4 +21,14 @@ Icon.displayName = 'gatsby-ui.Icon'
 Icon.defaultProps = {
   color: '#000',
   size: 64
+}
+Icon.propTypes = {
+  /**
+   * Color of the icon
+   */
+  color: PropTypes.string,
+  /**
+   * Size of the SVG
+   */
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }

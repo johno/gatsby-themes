@@ -213,6 +213,9 @@ const themeColors = {
   }
 }
 
+/**
+ * Global theme
+ */
 export default {
   fontSizes,
   fontFamilies,
