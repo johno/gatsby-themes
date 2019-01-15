@@ -1,21 +1,45 @@
 const fs = require('fs')
 const path = require('path')
 const mkdirp = require('mkdirp')
-const kebab = require('lodash.kebabcase')
+
+const ComponentDoc = require.resolve('./src/components/templates/ComponentDoc')
 
 exports.createPages = async ({ graphql, actions }, pluginOptions) => {
-  const { createPage, createRedirect } = actions
+  const { createPage } = actions
+  const { formatDisplayName, componentDocsPath = '/components' } = pluginOptions
 
-  const { docsPath } = pluginOptions
-
-  return
+  // const { docsPath } = pluginOptions
 
   const result = await graphql(`
     {
-      components: allComponentsMetadata {
+      docs: allFile(
+        filter: {
+          sourceInstanceName: { eq: "components" }
+          extension: { eq: "mdx" }
+        }
+      ) {
         edges {
           node {
-            id
+            name
+            sourceInstanceName
+            childMdx {
+              rawBody
+              code {
+                body
+              }
+            }
+          }
+        }
+      }
+      components: allComponentMetadata {
+        edges {
+          node {
+            displayName
+            parent {
+              ... on File {
+                name
+              }
+            }
           }
         }
       }
@@ -27,28 +51,31 @@ exports.createPages = async ({ graphql, actions }, pluginOptions) => {
     throw new Error('Could not query components', result.errors)
   }
 
+  // Aggregate colocated MDX files
   const { components } = result.data
+  const componentDocs = result.data.docs.edges.reduce((acc, { node }) => {
+    acc[node.name] = node
+    return acc
+  }, {})
 
-  // Create post pages and redirects
-  mdxPages.edges.forEach(({ node }) => {
-    const fallbackPath = `/${node.parent.sourceInstanceName}/${node.parent.name}`
-    const path = node.frontmatter.path || fallbackPath
+  // Create component pages
+  components.edges.forEach(({ node }) => {
+    const title = node.parent.name
+    const path = `${componentDocsPath}/${title}`
 
-    if (node.frontmatter.redirects) {
-      node.frontmatter.redirects.forEach(fromPath => {
-        createRedirect({
-          fromPath,
-          toPath: path,
-          redirectInBrowser: true,
-          isPermanent: true
-        })
-      })
+    let docs = ''
+    if (componentDocs[title]) {
+      docs = componentDocs[title].childMdx.code.body
     }
 
     createPage({
       path,
-      context: node,
-      component: Post
+      context: {
+        ...node,
+        title,
+        docs
+      },
+      component: ComponentDoc
     })
   })
 }

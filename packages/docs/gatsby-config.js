@@ -2,9 +2,12 @@ const path = require('path')
 const { resolver } = require('react-docgen')
 const annotationResolver = require('react-docgen-annotation-resolver').default
 
-module.exports = ({ defaultLayouts = {}, componentsPath = 'src/docs' } = {}) => {
+module.exports = ({
+  defaultLayouts = {},
+  componentDocsPath = 'src/component',
+  componentsPath = 'src/docs'
+} = {}) => {
   const themeLayouts = {
-    docs: require.resolve('./src/components/templates/Doc'),
     default: require.resolve('./src/components/Layout')
   }
 

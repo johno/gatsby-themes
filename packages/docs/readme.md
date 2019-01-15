@@ -30,5 +30,7 @@ module.exports = {
 
 Key | Default | Description
 --- | --- | ---
-`docsPath` | `/docs` | Root path for documentation pages
-`componentsPath` | `src/components` | Path for components source files
+`docsPath` | `/` | Root path for documentation pages
+`componentDocsPath` | `/components` | Path for rendered component docs pages
+`componentsSourcePath` | `src/components` | Path for components source files
+`formatDisplayName` | N/A | Format display name for the url based on the node (Example: `({ displayName }) => displayName.replace(/^gatsby-ui\./, '')`)

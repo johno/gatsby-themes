@@ -9,7 +9,10 @@ module.exports = {
     {
       resolve: 'gatsby-theme-docs',
       options: {
-        componentsPath: path.join(__dirname, '../../packages/ui/src')
+        componentsPath: path.join(__dirname, '../../packages/ui/src'),
+        formatDisplayName: ({ displayName }) => {
+          return displayName.replace(/^gatsby-ui\./, '')
+        }
       }
     }
   ]
