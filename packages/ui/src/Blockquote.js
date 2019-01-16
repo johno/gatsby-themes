@@ -23,7 +23,7 @@ export const Blockquote = styled(Text)`
 
 Blockquote.displayName = 'gatsby-ui.Blockquote'
 Blockquote.propTypes = {
-  as: PropTypes.string,
+  as: propTypes.numberOrString,
   bg: propTypes.responsive,
   borderColor: propTypes.responsive,
   color: propTypes.responsive,

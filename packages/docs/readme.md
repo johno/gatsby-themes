@@ -32,5 +32,4 @@ Key | Default | Description
 --- | --- | ---
 `docsPath` | `/` | Root path for documentation pages
 `componentDocsPath` | `/components` | Path for rendered component docs pages
-`componentsSourcePath` | `src/components` | Path for components source files
-`formatDisplayName` | N/A | Format display name for the url based on the node (Example: `({ displayName }) => displayName.replace(/^gatsby-ui\./, '')`)
+`componentsPath` | `src/components` | Path for components source files

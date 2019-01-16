@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {propTypes} from 'styled-system'
+import {space, propTypes} from 'styled-system'
 
 import {Text} from './Text'
 

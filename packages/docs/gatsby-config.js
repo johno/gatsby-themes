@@ -5,7 +5,9 @@ const annotationResolver = require('react-docgen-annotation-resolver').default
 module.exports = ({
   defaultLayouts = {},
   componentDocsPath = 'src/component',
-  componentsPath = 'src/docs'
+  componentsPath = 'src/docs',
+  components = {},
+  theme = {}
 } = {}) => {
   const themeLayouts = {
     default: require.resolve('./src/components/Layout')
@@ -58,6 +60,10 @@ module.exports = ({
             return annotatedComponents.concat(exportedComponents)
           }
         }
+      },
+      {
+        resolve: 'gatsby-transformer-styled-system',
+        options: { components, theme }
       }
     ]
   }

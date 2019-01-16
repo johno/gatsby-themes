@@ -1,4 +1,5 @@
 const path = require('path')
+const Components = require('../../packages/ui/dist')
 
 module.exports = {
   siteMetadata: {
@@ -9,10 +10,9 @@ module.exports = {
     {
       resolve: 'gatsby-theme-docs',
       options: {
-        componentsPath: path.join(__dirname, '../../packages/ui/src'),
-        formatDisplayName: ({ displayName }) => {
-          return displayName.replace(/^gatsby-ui\./, '')
-        }
+        components: Components,
+        theme: Components.theme,
+        componentsPath: path.join(__dirname, '../../packages/ui/src')
       }
     }
   ]
