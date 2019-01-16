@@ -32,7 +32,7 @@ Text.defaultProps = {
   lineHeight: 'copy'
 }
 Text.propTypes = {
-  as: PropTypes.string,
+  as: propTypes.numberOrString,
   bg: propTypes.responsive,
   color: propTypes.responsive,
   fontSize: propTypes.responsive,
@@ -58,7 +58,7 @@ Code.defaultProps = {
   px: 2
 }
 Code.propTypes = {
-  as: PropTypes.string,
+  as: propTypes.numberOrString,
   bg: propTypes.responsive,
   borderRadius: propTypes.responsive,
   color: propTypes.responsive,

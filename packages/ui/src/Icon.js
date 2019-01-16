@@ -1,4 +1,5 @@
 import React from 'react'
+import {propTypes} from 'styled-system'
 
 import {Spectrum} from './icons/Spectrum'
 
@@ -26,9 +27,9 @@ Icon.propTypes = {
   /**
    * Color of the icon
    */
-  color: PropTypes.string,
+  color: propTypes.numberOrString,
   /**
    * Size of the SVG
    */
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  size: propTypes.numberOrString
 }
