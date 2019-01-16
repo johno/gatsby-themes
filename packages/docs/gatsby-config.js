@@ -4,7 +4,7 @@ const annotationResolver = require('react-docgen-annotation-resolver').default
 
 module.exports = ({
   defaultLayouts = {},
-  componentDocsPath = 'src/component',
+  docsPath = 'docs',
   componentsPath = 'src/docs',
   components = {},
   theme = {}
@@ -22,16 +22,11 @@ module.exports = ({
       {
         resolve: 'gatsby-mdx',
         options: {
+          extensions: [".md", ".mdx"],
           defaultLayouts: {
             ...themeLayouts,
             ...defaultLayouts
           }
-        }
-      },
-      {
-        resolve: 'gatsby-plugin-page-creator',
-        options: {
-          path: path.join(__dirname, './src/pages')
         }
       },
       {
@@ -42,10 +37,10 @@ module.exports = ({
         }
       },
       {
-        resolve: 'gatsby-source-filesystem',
+        resolve: 'gatsby-plugin-page-creator',
         options: {
           name: 'docs',
-          path: 'docs',
+          path: docsPath,
           ignore: ['**/\.*']
         },
       },

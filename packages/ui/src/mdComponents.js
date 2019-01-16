@@ -9,7 +9,8 @@ import {
   Blockquote,
   OrderedList,
   UnorderedList,
-  ListItem
+  ListItem,
+  Table
 } from '.'
 
 /**
@@ -25,6 +26,7 @@ export default {
   p: props => <Text color="mdx.p" mt={1} mb={3} fontSize={2} {...props} />,
 
   a: props => <Link color="mdx.a" {...props} />,
+  table: props => <Table mx="auto" {...props} />,
 
   ol: OrderedList,
   ul: UnorderedList,
