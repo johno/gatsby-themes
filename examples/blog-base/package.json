@@ -7,7 +7,11 @@
     "build": "gatsby build"
   },
   "dependencies": {
-    "gatsby": "2.0.89",
+    "gatsby": "*",
     "gatsby-theme-blog-base": "*"
+  },
+  "resolutions": {
+    "gatsby": "2.0.91",
+    "graphql": "0.13.2"
   }
 }

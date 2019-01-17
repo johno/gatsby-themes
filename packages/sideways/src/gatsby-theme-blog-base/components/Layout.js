@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from 'gatsby-ui'
 import { createGlobalStyle } from 'styled-components'
 
-import Footer from './Footer'
+import Footer from '../../components/Footer'
 
 const GlobalStyle = createGlobalStyle`
   body {

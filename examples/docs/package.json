@@ -11,6 +11,7 @@
     "gatsby-theme-docs": "*"
   },
   "resolutions": {
-    "react-docgen": "3.0.0-rc.2"
+    "react-docgen": "3.0.0-rc.2",
+    "graphql": "0.13.2"
   }
 }

@@ -15,7 +15,8 @@
   ],
   "workspaces": [
     "packages/*",
-    "examples/*"
+    "examples/*",
+    "gatsby/packages/gatsby"
   ],
   "dependencies": {
     "lerna": "^3.10.0"
