@@ -10,5 +10,9 @@
     "gatsby": "*",
     "gatsby-theme-redirects": "*",
     "gatsby-theme-sideways": "*"
+  },
+  "resolutions": {
+    "gatsby": "2.0.91",
+    "graphql": "0.13.2"
   }
 }

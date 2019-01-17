@@ -1,9 +1,6 @@
 const path = require('path')
 
 module.exports = () => {
-  let defaultLayout = require.resolve('./src/components/Layout')
-  let defaultPostLayout = require.resolve('./src/components/PostPageLayout')
-
   return {
     siteMetadata: {
       title: 'Sideways',
@@ -17,8 +14,7 @@ module.exports = () => {
         options: {
           postsPath: '/writing',
           defaultLayouts: {
-            default: defaultLayout,
-            posts: defaultPostLayout
+            default: require.resolve('./src/gatsby-theme-blog-base/components/Layout')
           }
         }
       }
