@@ -12,6 +12,7 @@ module.exports = {
       options: {
         components: Components,
         theme: Components.theme,
+        docsPath: path.join(__dirname, './docs'),
         componentsPath: path.join(__dirname, '../../packages/ui/src')
       }
     }

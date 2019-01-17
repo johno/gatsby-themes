@@ -50,6 +50,7 @@ exports.onCreateNode = async ({
     propTypes,
     defaultProps,
     css,
+    src: content,
     id: createNodeId(nodeId),
     children: [],
     parent: node.id,
@@ -73,6 +74,7 @@ exports.setFieldsOnGraphQLNodeType = ({ type }) => {
     tagName: { type: GraphQLString },
     css: { type: GraphQLString },
     propTypes: { type: GraphQLJSON },
-    defaultProps: { type: GraphQLJSON }
+    defaultProps: { type: GraphQLJSON },
+    src: { type: GraphQLString }
   }
 }
