@@ -1,7 +1,8 @@
 import React from 'react'
 import {Code, Container, Heading, Table, Text, Provider} from 'gatsby-ui'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
-console.log(Table)
+
+import Layout from './Layout'
 
 const DESCRIPTIONS = {
   as: 'Element that the component will render as.',
@@ -29,43 +30,45 @@ export default ({
 
   if (docs) {
     return (
-      <Container my={[3, 4, 5]} maxWidth="measureWide">
-        <MDXRenderer>{docs}</MDXRenderer>
-        <Provider>
-          <Heading mt={4}>Table of properties</Heading>
-          <Table mt={3}>
-            <Table.THead>
-              <Table.TR>
-                <Table.TH>Prop</Table.TH>
-                <Table.TH>Default</Table.TH>
-                <Table.TH>Description</Table.TH>
-              </Table.TR>
-            </Table.THead>
-            <Table.TBody>
-              {metadata.props.map(prop =>
-                <Table.TR key={prop.name}>
-                  <Table.TD>{prop.name}</Table.TD>
-                  <Table.TD>
-                    <Code bg="white">
-                      {prop.defaultValue ? formatDefaultValue(prop.defaultValue.value) : 'None'}
-                    </Code>
-                  </Table.TD>
-                  <Table.TD>
-                    <Text as="span" color="grays.8" fontSize={1}>
-                      <i>{prop.description || DESCRIPTIONS[prop.name] || 'None'}</i>
-                    </Text>
-                  </Table.TD>
+      <Layout>
+        <Container my={[3, 4, 5]} maxWidth="measureWide">
+          <MDXRenderer>{docs}</MDXRenderer>
+          <Provider>
+            <Heading mt={4}>Table of properties</Heading>
+            <Table mt={3}>
+              <Table.THead>
+                <Table.TR>
+                  <Table.TH>Prop</Table.TH>
+                  <Table.TH>Default</Table.TH>
+                  <Table.TH>Description</Table.TH>
                 </Table.TR>
-              )}
-            </Table.TBody>
-          </Table>
-        </Provider>
-      </Container>
+              </Table.THead>
+              <Table.TBody>
+                {metadata.props.map(prop =>
+                  <Table.TR key={prop.name}>
+                    <Table.TD>{prop.name}</Table.TD>
+                    <Table.TD>
+                      <Code bg="white">
+                        {prop.defaultValue ? formatDefaultValue(prop.defaultValue.value) : 'None'}
+                      </Code>
+                    </Table.TD>
+                    <Table.TD>
+                      <Text as="span" color="grays.8" fontSize={1}>
+                        <i>{prop.description || DESCRIPTIONS[prop.name] || 'None'}</i>
+                      </Text>
+                    </Table.TD>
+                  </Table.TR>
+                )}
+              </Table.TBody>
+            </Table>
+          </Provider>
+        </Container>
+      </Layout>
     )
   }
 
   return (
-    <>
+    <Layout>
       <Heading as="h1" fontSize={8}>{title}</Heading>
       <table>
         <thead>
@@ -80,11 +83,11 @@ export default ({
             <tr key={prop.name}>
               <td>{prop.name}</td>
               <td>{prop.defaultValue ? prop.defaultValue.value : 'None'}</td>
-              <td>{prop.description}</td>
+              <td>{prop.description ? prop.description.text : ''}</td>
             </tr>
           )}
         </tbody>
       </table>
-    </>
+    </Layout>
   )
 }

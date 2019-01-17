@@ -31,6 +31,7 @@ exports.createPages = async ({ graphql, actions }, pluginOptions) => {
           }
         }
       }
+
       components: allComponentMetadata {
         edges {
           node {
@@ -40,6 +41,19 @@ exports.createPages = async ({ graphql, actions }, pluginOptions) => {
                 name
               }
             }
+          }
+        }
+      }
+
+      system: allStyledSystem {
+        edges {
+          node {
+            id
+            name
+            tagName
+            css
+            propTypes
+            defaultProps
           }
         }
       }
@@ -60,8 +74,9 @@ exports.createPages = async ({ graphql, actions }, pluginOptions) => {
 
   // Create component pages
   components.edges.forEach(({ node }) => {
-    const title = node.parent.name
-    const path = `${componentDocsPath}/${title}`
+    const { frontmatter = {} } = node
+    const title = frontmatter.title || node.parent.name
+    const path = frontmatter.path || `${componentDocsPath}/${title}`
 
     let docs = ''
     if (componentDocs[title]) {
