@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "pixyll",
+  "version": "0.0.4",
+  "scripts": {
+    "start": "gatsby develop",
+    "build": "gatsby build"
+  },
+  "dependencies": {
+    "gatsby": "*",
+    "gatsby-theme-pixyll": "*"
+  },
+  "resolutions": {
+    "gatsby": "2.0.91",
+    "graphql": "0.13.2"
+  }
+}

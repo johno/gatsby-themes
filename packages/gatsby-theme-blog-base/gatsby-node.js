@@ -32,6 +32,12 @@ exports.createPages = async ({ graphql, actions }, pluginOptions) => {
         edges {
           node {
             id
+            excerpt
+            timeToRead
+            tableOfContents
+            headings {
+              value
+            }
             parent {
               ... on File {
                 name
@@ -41,7 +47,9 @@ exports.createPages = async ({ graphql, actions }, pluginOptions) => {
             frontmatter {
               path
               tags
+              title
               redirects
+              date(formatString: "MMMM DD, YYYY")
             }
             code {
               scope

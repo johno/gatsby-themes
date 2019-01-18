@@ -19,6 +19,8 @@
 - Separation of renderer and query for data backed pages/templates
 - Can't use `__experimentalThemes: ['fooo']` shortcut
 - Theme doesn't work due to lack of transpilation of gatsby-ssr/gatsby-browser
+- Getting config in theme's gatsby-config
+- https://twitter.com/4lpine/status/1086275936452960256?s=20
 
 ## Props APIs
 
