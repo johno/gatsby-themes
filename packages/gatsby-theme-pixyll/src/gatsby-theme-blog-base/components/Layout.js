@@ -6,9 +6,11 @@ import '../../styles/pixyll.scss'
 
 const Layout = ({ children }) => (
   <div className="site">
-    <div className="site-wrap">
+    <div className="site-wrap px2">
       <Header />
-      {children}
+      <div className="measure">
+        {children}
+      </div>
     </div>
   </div>
 )

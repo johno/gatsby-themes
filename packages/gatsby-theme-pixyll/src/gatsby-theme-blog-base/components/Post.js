@@ -3,9 +3,12 @@ import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 
 import Layout from './Layout'
 
-const PostPage = ({ data: { mdx } }) => (
+const PostPage = ({ data: { mdx }, pageContext: { frontmatter } }) => (
   <Layout>
-    <h1>shadowedddd</h1>
+    <div className="post-header mb2">
+      <h1>{frontmatter.title}</h1>
+      <span class="post-meta">{frontmatter.date}</span>
+    </div>
     <article className="post-content">
       <MDXRenderer>{mdx.code.body}</MDXRenderer>
     </article>
