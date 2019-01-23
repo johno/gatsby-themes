@@ -40,7 +40,6 @@ const Title = styled(Heading)`
 
 export default ({ posts: [first, second, third ]}) => (
   <Flex flexWrap="wrap">
-
     <PrimaryPost pb={[10, 10, 0]} width={[1, 1, 7/10]}>
       <Link to={first.frontmatter.path}>
         <Image {...first.frontmatter.image.childImageSharp} />

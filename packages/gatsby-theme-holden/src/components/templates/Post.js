@@ -15,6 +15,16 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        image {
+          childImageSharp {
+            fluid(maxWidth: 1000) {
+              src
+              srcSet
+              tracedSVG
+              aspectRatio
+            }
+          }
+        }
       }
     }
   }
