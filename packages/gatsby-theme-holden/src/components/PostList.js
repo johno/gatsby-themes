@@ -1,4 +1,5 @@
 import React from 'react'
+import { Container } from 'gatsby-ui'
 
 import FeaturedPosts from './FeaturedPosts'
 import PostLink from './PostLink'
@@ -10,9 +11,11 @@ const PostList = ({ data }) => {
   return (
     <>
       <FeaturedPosts posts={[first.node, second.node, third.node]} />
-      {posts.map(post => (
-        <PostLink key={post.node.id} post={post.node} />
-      ))}
+      <Container maxWidth="measureWide" mt={[4, 4, 5]}>
+        {posts.map(post => (
+          <PostLink key={post.node.id} post={post.node} />
+        ))}
+      </Container>
     </>
   )
 }

@@ -3,6 +3,7 @@ import { Provider } from 'gatsby-ui'
 import { createGlobalStyle } from 'styled-components'
 
 import Header from './Header'
+import Footer from './Footer'
 
 const GlobalStyle = createGlobalStyle`
   html,
@@ -16,6 +17,7 @@ export default ({ children }) => (
     <>
       <Header />
       {children}
+      <Footer />
       <GlobalStyle />
     </>
   </Provider>

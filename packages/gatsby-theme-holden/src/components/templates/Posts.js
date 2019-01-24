@@ -9,16 +9,12 @@ const Posts = ({
   pathContext,
   pageContext,
   ...props
-}) => {
-  console.log({ pageContext, pathContext, props })
-  
-  return (
-    <Layout>
-      <PostList {...props} />
-      <Pagination {...pathContext} />
-    </Layout>
-  )
-}
+}) => (
+  <Layout>
+    <PostList {...props} />
+    <Pagination {...pathContext} />
+  </Layout>
+)
 
 export default Posts
 
@@ -41,6 +37,7 @@ export const pageQuery = graphql`
       edges {
         node {
           id
+          excerpt
           parent {
             ... on File {
               name
@@ -51,6 +48,7 @@ export const pageQuery = graphql`
             title
             path
             category
+            summary
             date(formatString: "MMMM DD, YYYY")
             image {
               childImageSharp {

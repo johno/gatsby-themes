@@ -8,7 +8,7 @@ const Caps = styled.span`
 `
 
 export default () => (
-  <Container>
+  <Container as="header">
     <Box pt={[3, 4, 5]} pb={3} textAlign="center">
       <Heading mb={5} fontSize={[3, 4, 4]}>
         <Caps>Holden</Caps>
