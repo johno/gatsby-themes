@@ -1,7 +1,7 @@
 {
   "name": "gatsby-transformer-styled-system",
   "description": "Gatsby transformer to create styled-system docs nodes",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "John Otander",
   "license": "MIT",
   "main": "index.js",

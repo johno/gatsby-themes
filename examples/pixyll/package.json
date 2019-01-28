@@ -1,14 +1,14 @@
 {
   "private": true,
   "name": "pixyll",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build"
   },
   "dependencies": {
     "gatsby": "*",
-    "gatsby-theme-pixyll": "*"
+    "gatsby-theme-pixyll": "^0.0.5"
   },
   "resolutions": {
     "gatsby": "2.0.91",

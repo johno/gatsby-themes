@@ -1,20 +1,19 @@
 {
   "name": "gatsby-theme-sideways",
   "description": "Minimal gatsby theme for a blog with sideways footer",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "author": "John Otander",
   "main": "gatsby-config.js",
-  "scripts": {
-  },
+  "scripts": {},
   "keywords": [
     "gatsby",
     "gatsby-theme"
   ],
   "dependencies": {
-    "gatsby-theme-blog-base": "*",
     "gatsby-plugin-styled-components": "^3.0.4",
-    "gatsby-ui": "*",
+    "gatsby-theme-blog-base": "^0.0.5",
+    "gatsby-ui": "^0.0.5",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "styled-components": "^4.1.3",

@@ -1,7 +1,7 @@
 {
   "name": "gatsby-theme-pixyll",
   "description": "Jekyll Pixyll theme ported to Gatsby",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "author": "John Otander",
   "main": "gatsby-config.js",
@@ -12,7 +12,7 @@
   ],
   "dependencies": {
     "gatsby-plugin-sass": "^2.0.7",
-    "gatsby-theme-blog-base": "*",
+    "gatsby-theme-blog-base": "^0.0.5",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
