@@ -8,13 +8,7 @@ module.exports = {
   },
   pathPrefix: '/examples/sideways',
   __experimentalThemes: [
-    {
-      resolve: 'gatsby-theme-sideways',
-      options: {}
-    },
-    {
-      resolve: 'gatsby-theme-redirects',
-      options: {}
-    }
+    'gatsby-theme-sideways',
+    'gatsby-theme-redirects'
   ]
 }

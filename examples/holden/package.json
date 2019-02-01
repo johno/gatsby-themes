@@ -7,12 +7,8 @@
     "build": "gatsby build"
   },
   "dependencies": {
-    "gatsby": "*",
-    "gatsby-theme-holden": "^0.0.5",
-    "gatsby-theme-redirects": "^0.0.5"
-  },
-  "resolutions": {
-    "gatsby": "2.0.91",
-    "graphql": "0.13.2"
+    "gatsby": "latest",
+    "gatsby-theme-holden": "*",
+    "gatsby-theme-redirects": "*"
   }
 }

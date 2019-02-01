@@ -2,7 +2,8 @@ import React from 'react'
 import { Container } from 'gatsby-ui'
 import { createGlobalStyle } from 'styled-components'
 
-import Footer from '../../components/Footer'
+import NavProvider, { NavContext } from '../../providers/NavProvider'
+import Nav from '../../components/Nav'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -28,13 +29,17 @@ const GlobalStyle = createGlobalStyle`
 
 const Layout = ({ children }) => (
   <>
-    <Container>
-      <Container maxWidth="measureWide">
-        {children}
+    <NavProvider>
+      <Container>
+        <Container maxWidth="measureWide">
+          {children}
+        </Container>
       </Container>
-    </Container>
-    <Footer variant="vertical" />
-    <GlobalStyle />
+      <NavContext.Consumer>
+        {props => <Nav as="footer" variant="vertical" {...props} />}
+      </NavContext.Consumer>
+      <GlobalStyle />
+    </NavProvider>
   </>
 )
 

@@ -1,3 +1,4 @@
+const fs = require('fs')
 const crypto = require('crypto')
 const systemDocs = require('system-docs')
 const { GraphQLString, GraphQLJSON, } = require('gatsby/graphql')

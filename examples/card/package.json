@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "card",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "gatsby develop"
+  },
+  "dependencies": {
+    "gatsby": "latest",
+    "gatsby-theme-card": "*"
+  }
+}
