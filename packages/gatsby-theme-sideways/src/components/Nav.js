@@ -6,6 +6,7 @@ export default ({
   title,
   twitterHandle,
   githubHandle,
+  brand = "grays.8",
   ...props
 }) => {
   return (
@@ -16,12 +17,12 @@ export default ({
       <Flex justifyContent="space-between" alignItems="center">
         <Flex alignItems="center">
           <Box>
-            <Link as={GatsbyLink} to="/" color="grays.8">
+            <Link as={GatsbyLink} to="/" color={brand}>
               <Heading fontSize={1}>{title || 'hiiiiii'}</Heading>
             </Link>
           </Box>
           <Box my={3}>
-            <Heading fontSize={1} color="grays.8">
+            <Heading fontSize={1} color={brand}>
               —
               <Text
                 as="span"
@@ -60,7 +61,7 @@ export default ({
           <Box mb={4}>
             <Link
               as={GatsbyLink}
-              color="grays.8"
+              color={brand}
               to={`https://github.com/${githubHandle}`}
             >
               <Heading fontSize={1}>
@@ -71,7 +72,7 @@ export default ({
           <Box mb={4}>
             <Link
               as={GatsbyLink}
-              color="grays.8"
+              color={brand}
               to={`https://twitter.com/${twitterHandle}`}
             >
               <Heading fontSize={1}>

@@ -10,6 +10,7 @@ export default ({ children }) => (
         site {
           siteMetadata {
             title
+            brand
             githubHandle
             twitterHandle
           }

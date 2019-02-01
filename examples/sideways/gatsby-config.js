@@ -4,7 +4,8 @@ module.exports = {
   siteMetadata: {
     title: 'johno',
     twitterHandle: '4lpine',
-    githubHandle: 'johno'
+    githubHandle: 'johno',
+    brand: 'grays.8'
   },
   pathPrefix: '/examples/sideways',
   __experimentalThemes: [
