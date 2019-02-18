@@ -111,7 +111,7 @@ export const CodeBlock = ({ children }) => {
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
           className={className}
-          style={{ ...style, padding: '20px' }}
+          style={{ ...style, padding: '20px', overflowX: 'scroll' }}
         >
           {tokens.map((line, i) => (
             <div {...getLineProps({ line, key: i })}>
