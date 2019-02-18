@@ -1,1 +1,0 @@
-# [WIP] gatsby-transformer-styled-system
