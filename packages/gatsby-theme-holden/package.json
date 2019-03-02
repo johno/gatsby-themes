@@ -1,7 +1,7 @@
 {
   "name": "gatsby-theme-holden",
   "description": "Base blog theme functionality for Gatsby",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "author": "John Otander",
   "main": "gatsby-config.js",
@@ -22,7 +22,7 @@
     "gatsby-source-filesystem": "^2.0.13",
     "gatsby-transformer-sharp": "^2.1.10",
     "gatsby-transformer-yaml": "^2.1.7",
-    "gatsby-ui": "^0.0.5",
+    "gatsby-ui": "^0.0.6",
     "lodash.kebabcase": "^4.1.1",
     "mkdirp": "^0.5.1",
     "prop-types": "^15.6.2",

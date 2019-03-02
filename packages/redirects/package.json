@@ -1,7 +1,7 @@
 {
   "name": "gatsby-theme-redirects",
   "description": "Automatically create redirects from redirects.yml",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "author": "John Otander",
   "main": "gatsby-config.js",
