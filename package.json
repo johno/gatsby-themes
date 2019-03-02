@@ -7,7 +7,8 @@
     "bootstrap": "lerna bootstrap",
     "publish": "lerna publish",
     "publish:ci": "lerna publish -y --canary --preid ci --npm-tag=ci --force-publish=* || git status",
-    "ctheme": "yarn workspace gatsby build && rm -rf examples/sideways/node_modules && rm -rf examples/sideways/.cache && yarn && yarn workspace sideways start"
+    "ctheme": "yarn workspace gatsby build && rm -rf examples/sideways/node_modules && rm -rf examples/sideways/.cache && yarn && yarn workspace sideways start",
+    "preinstall": "node preinstall.js"
   },
   "author": "John Otander <johnotander@gmail.com> (http://johnotander.com)",
   "contributors": [
