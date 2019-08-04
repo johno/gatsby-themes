@@ -4,17 +4,13 @@
   "repository": "johno/gatsby-themes",
   "license": "MIT",
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "prepare": "lerna bootstrap",
     "publish": "lerna publish",
-    "publish:ci": "lerna publish -y --canary --preid ci --npm-tag=ci --force-publish=* || git status",
-    "ctheme": "yarn workspace gatsby build && rm -rf examples/sideways/node_modules && rm -rf examples/sideways/.cache && yarn && yarn workspace sideways start"
+    "publish:ci": "lerna publish -y --canary --preid ci --npm-tag=ci --force-publish=*"
   },
   "author": "John Otander <johnotander@gmail.com> (http://johnotander.com)",
-  "contributors": [
-    "John Otander <johnotander@gmail.com> (http://johnotander.com)"
-  ],
   "workspaces": [
-    "packages/*",
+    "themes/*",
     "examples/*"
   ],
   "dependencies": {
