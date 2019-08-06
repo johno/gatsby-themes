@@ -4,6 +4,7 @@
   "repository": "johno/gatsby-themes",
   "license": "MIT",
   "scripts": {
+    "start": "yarn workspace gatsby-starter-blog-theme start",
     "prepare": "lerna bootstrap",
     "publish": "lerna publish",
     "publish:ci": "lerna publish -y --canary --preid ci --npm-tag=ci --force-publish=*"
@@ -11,9 +12,10 @@
   "author": "John Otander <johnotander@gmail.com> (http://johnotander.com)",
   "workspaces": [
     "themes/*",
-    "examples/*"
+    "examples/*",
+    "packages/*"
   ],
   "dependencies": {
-    "lerna": "^3.10.0"
+    "lerna": "^3.16.4"
   }
 }

@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "gatsby-starter-blog-theme",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn develop",
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop"
+  },
+  "dependencies": {
+    "gatsby": "^2.13.50",
+    "gatsby-theme-blog-core-ui": "0.0.0",
+    "gatsby-ui-cli": "0.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}

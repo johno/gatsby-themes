@@ -3,6 +3,8 @@
   "useWorkspaces": true,
   "npmClient": "yarn",
   "packages": [
+    "themes/*",
+    "examples/*",
     "packages/*"
   ]
 }
