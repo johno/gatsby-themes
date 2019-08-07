@@ -7,7 +7,8 @@
     "start": "yarn workspace gatsby-starter-blog-theme start",
     "prepare": "lerna bootstrap",
     "publish": "lerna publish",
-    "publish:ci": "lerna publish -y --canary --preid ci --npm-tag=ci --force-publish=*"
+    "publish:ci": "lerna publish -y --canary --preid ci --npm-tag=ci --force-publish=*",
+    "cli": "yarn workspace gatsby-starter-blog-theme ui"
   },
   "author": "John Otander <johnotander@gmail.com> (http://johnotander.com)",
   "workspaces": [

@@ -1,5 +1,3 @@
-console.log('hiiiiiii')
-
 module.exports = {
   siteMetadata: {
     title: 'Example',

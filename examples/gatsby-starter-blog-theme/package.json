@@ -7,12 +7,13 @@
     "start": "yarn develop",
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "develop": "gatsby develop"
+    "develop": "gatsby develop",
+    "ui": "gatsby-ui"
   },
   "dependencies": {
     "gatsby": "^2.13.50",
     "gatsby-theme-blog-core-ui": "0.0.0",
-    "gatsby-ui-cli": "0.0.0",
+    "gatsby-ui": "0.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }

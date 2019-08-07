@@ -1,0 +1,51 @@
+{
+	"name": "gatsby-ui",
+	"version": "0.0.0",
+	"license": "MIT",
+	"bin": "cli.js",
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"cli.js",
+		"ui.js"
+	],
+	"dependencies": {
+		"@theme-ui/presets": "^0.2.30",
+		"import-jsx": "^3.0.0",
+		"ink": "^2.3.0",
+		"ink-select-input": "^3.1.2",
+		"ink-text-input": "^3.2.1",
+		"meow": "^5.0.0",
+		"prop-types": "^15.7.2",
+		"react": "^16.8.6",
+		"yn": "^3.1.1"
+	},
+	"devDependencies": {
+		"@babel/preset-react": "^7.0.0",
+		"@babel/register": "^7.5.5",
+		"ava": "^2.2.0",
+		"chalk": "^2.4.2",
+		"eslint-config-xo-react": "^0.20.0",
+		"eslint-plugin-react": "^7.14.3",
+		"eslint-plugin-react-hooks": "^1.6.1",
+		"ink-testing-library": "^1.0.2",
+		"xo": "^0.24.0"
+	},
+	"ava": {
+		"require": [
+			"@babel/register"
+		]
+	},
+	"babel": {
+		"presets": [
+			"@babel/preset-react"
+		]
+	},
+	"xo": {
+		"extends": "xo-react"
+	}
+}
