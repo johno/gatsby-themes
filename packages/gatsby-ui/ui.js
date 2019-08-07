@@ -4,7 +4,9 @@ const React = require('react')
 const { Component } = require('react')
 const { Text, Box, Color } = require('ink')
 const SelectInput = require('ink-select-input').default
+const Spinner = require('ink-spinner').default
 const presets = require('@theme-ui/presets')
+const fs = require('fs')
 
 const HARDCODED_TYPES = ['mdxBlogPost', 'mdxNotes']
 const HARDCODED_HEADERS = [
@@ -13,7 +15,22 @@ const HARDCODED_HEADERS = [
 ]
 const HARDCODED_FOOTERS = ['none', 'basic', 'centered', 'social']
 
-const scaffold = data => {}
+const generateTheme = preset => `
+import { ${preset} } from '@theme-ui/presets'
+
+const { styles, ...theme } = ${preset}
+
+export default {
+	...theme,
+	styles: {
+		...styles
+	}
+}
+`
+
+const scaffold = data => {
+	fs.writeFileSync('src/gatsby-theme-plugin-ui/index.js', generateTheme(data.preset))
+}
 
 const FileWriteSummary = ({
 	title = 'The following files will be created'
@@ -51,14 +68,11 @@ const Summary = ({
 class BlogPost extends Component  {
   constructor() {
 		super()
-		this.state = {
-			step: 'preset',
-			query: ''
-		}
+		this.state = { query: '' }
 	}
 
 	render() {
-		const { step } = this.state
+		const { step, onChange, onComplete } = this.props
 
 		if (step === 'preset') {
 			const items = Object.keys(presets).map(preset => {
@@ -72,7 +86,7 @@ class BlogPost extends Component  {
 					<SelectInput
 						items={items}
 						onSelect={item => {
-							this.setState({
+							onChange({
 								preset: item.value,
 								step: 'dataType'
 							})
@@ -87,12 +101,11 @@ class BlogPost extends Component  {
 
 			return (
 				<>
-					<Summary {...this.state} />
 					<Text>Select a data type:</Text>
 					<SelectInput
 						items={items}
 						onSelect={item => {
-							this.setState({
+							onChange({
 								dataType: item.value,
 								step: 'header'
 							})
@@ -107,12 +120,11 @@ class BlogPost extends Component  {
 
 			return (
 				<>
-					<Summary {...this.state} />
 					<Text>Select a header:</Text>
 					<SelectInput
 						items={items}
 						onSelect={item => {
-							this.setState({
+							onChange({
 								header: item.value,
 								step: 'footer'
 							})
@@ -127,12 +139,11 @@ class BlogPost extends Component  {
 
 			return (
 				<>
-					<Summary {...this.state} />
 					<Text>Select a footer:</Text>
 					<SelectInput
 						items={items}
 						onSelect={item => {
-							this.setState({
+							onChange({
 								footer: item.value,
 								step: 'confirm'
 							})
@@ -143,7 +154,6 @@ class BlogPost extends Component  {
 		} else if (step === 'confirm') {
 			return (
 				<>
-					<Summary {...this.state} />
 					<FileWriteSummary />
 					<Text>Create files?</Text>
 					<SelectInput
@@ -152,30 +162,65 @@ class BlogPost extends Component  {
 							{ label: 'No', value: false }
 						]}
 						onSelect={item => {
-							this.setState({
-								confirmed: item.value,
-								step: 'done'
-							})
+							onChange({ confirmed: item.value })
+							onComplete()
 						}}
 					/>
-				</>
-			)
-		} else if (step === 'done') {
-			this.props.onComplete(this.state)
-
-			return (
-				<>
-					<Summary {...this.state} />
-					<FileWriteSummary title='Files created' />
-					<Text>Done! You can now run <Color green>gatsby develop</Color>!</Text>
 				</>
 			)
 		}
 	}
 }
 
-const App = () => {
-	return <BlogPost onComplete={scaffold} />
+class App extends Component {
+	constructor() {
+		super()
+		this.state = {
+			completed: false,
+			scaffoldData: {
+				step: 'preset'
+			}
+		}
+	}
+
+	render() {
+		const { completed, done, scaffoldData } = this.state
+
+		if (done) {
+			return <Text>Scaffolding complete</Text>
+		}
+
+		if (!completed) {
+			return (
+				<>
+					<Summary {...scaffoldData} />
+ 					<BlogPost
+					 {...scaffoldData}
+						onChange={newScaffoldData => {
+							this.setState({
+								scaffoldData: {
+									...scaffoldData,
+									...newScaffoldData
+								}
+							})
+						}}
+						onComplete={() => {
+							this.setState({ completed: true })
+							scaffold(scaffoldData)
+							this.setState({ done: true })
+						}}
+					/>
+				</>
+			)
+		} else {
+			return (
+				<>
+					<Summary {...scaffoldData} />
+					<Text><Spinner /> Scaffolding</Text>
+				</>
+			)
+		}
+	}
 }
 
 module.exports = App
