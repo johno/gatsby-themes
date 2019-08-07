@@ -21,6 +21,7 @@
 		"ink-spinner": "^3.0.1",
 		"ink-text-input": "^3.2.1",
 		"meow": "^5.0.0",
+		"mkdirp": "^0.5.1",
 		"prop-types": "^15.7.2",
 		"react": "^16.8.6",
 		"yn": "^3.1.1"

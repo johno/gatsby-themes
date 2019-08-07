@@ -7,6 +7,8 @@ const SelectInput = require('ink-select-input').default
 const Spinner = require('ink-spinner').default
 const presets = require('@theme-ui/presets')
 const fs = require('fs')
+const path = require('path')
+const mkdirp = require('mkdirp')
 
 const HARDCODED_TYPES = ['mdxBlogPost', 'mdxNotes']
 const HARDCODED_HEADERS = [
@@ -15,21 +17,46 @@ const HARDCODED_HEADERS = [
 ]
 const HARDCODED_FOOTERS = ['none', 'basic', 'centered', 'social']
 
-const generateTheme = preset => `
-import { ${preset} } from '@theme-ui/presets'
+const generateTheme = preset => {
+	const name = preset.replace('@theme-ui/', '')
+	
+	return`import { ${name} } from '${preset}'
 
-const { styles, ...theme } = ${preset}
+const { styles, ...theme } = ${name}
 
 export default {
 	...theme,
 	styles: {
+		root: {
+			fontFamily: 'body',
+			lineHeight: 'body'
+		},
 		...styles
 	}
 }
 `
+}
+
+const copyFile = (fileName, dest) => {
+	const fullFilePath = path.join(__dirname, fileName)
+	const contents = fs.readFileSync(fullFilePath, 'utf8')
+	fs.writeFileSync(dest, contents)
+}
 
 const scaffold = data => {
-	fs.writeFileSync('src/gatsby-theme-plugin-ui/index.js', generateTheme(data.preset))
+	mkdirp.sync('src/gatsby-plugin-theme-ui')
+	mkdirp.sync('src/gatsby-theme-blog-core/components')
+	mkdirp.sync('src/components')
+
+	fs.writeFileSync('src/gatsby-plugin-theme-ui/index.js', generateTheme(data.preset))
+	fs.writeFileSync('src/gatsby-plugin-theme-ui/components.js', 'export default {}')
+
+	copyFile('templates/headers/basic.js', 'src/components/header.js')
+	copyFile('templates/footers/basic.js', 'src/components/footer.js')
+	copyFile('templates/layouts/basic.js', 'src/components/layout.js')
+	copyFile('templates/posts/post-link.js', 'src/components/post-link.js')
+
+	copyFile('templates/posts/basic.js', 'src/gatsby-theme-blog-core/components/posts.js')
 }
 
 const FileWriteSummary = ({
@@ -37,8 +64,8 @@ const FileWriteSummary = ({
 }) => (
 	<>
 		<Text bold>{title}</Text>
-		<Text>  src/gatsby-theme-plugin-ui/index.js</Text>
-		<Text>  src/gatsby-theme-plugin-ui/components.js</Text>
+		<Text>  src/gatsby-plugin-theme-ui/index.js</Text>
+		<Text>  src/gatsby-plugin-theme-ui/components.js</Text>
 		<Text>  src/gatsby-theme-blog-core/components/posts.js</Text>
 		<Text>  src/gatsby-theme-blog-core/components/post.js</Text>
 		<Text>  src/components/layout.js</Text>
