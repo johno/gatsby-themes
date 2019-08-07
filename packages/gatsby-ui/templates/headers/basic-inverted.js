@@ -9,7 +9,7 @@ const HeaderLink = props =>
     sx={{
       textDecoration: 'none',
       fontWeight: 'bold',
-      color: 'primary',
+      color: 'background',
       '&.active': {
         color: 'secondary',
       }
@@ -17,7 +17,12 @@ const HeaderLink = props =>
   />
 
 export default () => (
-  <Header>
+  <Header
+    sx={{
+      bg: 'text',
+      text: 'background'
+    }}
+  >
     <Container
       sx={{
         display: 'flex',
@@ -28,6 +33,7 @@ export default () => (
     >
       <p
         sx={{
+          color: 'background',
           fontSize: 3,
           fontWeight: 'bold'
         }}

@@ -23,12 +23,13 @@ export default () => (
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
-        width: '100%'
+        width: '100%',
+        py: 0
       }}
     >
       <p
         sx={{
-          fontSize: 3,
+          fontSize: 4,
           fontWeight: 'bold'
         }}
       >

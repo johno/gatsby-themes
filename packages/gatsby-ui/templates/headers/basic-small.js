@@ -23,7 +23,8 @@ export default () => (
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
-        width: '100%'
+        width: '100%',
+        py: 0
       }}
     >
       <p

@@ -12,15 +12,16 @@ const mkdirp = require('mkdirp')
 
 const HARDCODED_TYPES = ['mdxBlogPost', 'mdxNotes']
 const HARDCODED_HEADERS = [
-	'basic', 'centered', 'left', 'space-between', 'stretch',
-	'bold', 'sticky', 'hero-scroll', 'social'
+	'basic', 'basic-small', 'basic-large', 'basic-inverted'
+	//'centered', 'left', 'space-between', 'stretch',
+	//'bold', 'sticky', 'hero-scroll', 'social'
 ]
-const HARDCODED_FOOTERS = ['none', 'basic', 'centered', 'social']
+const HARDCODED_FOOTERS = ['basic', 'basic-border', 'basic-inverted', 'none']
 
 const generateTheme = preset => {
-	const name = preset.replace('@theme-ui/', '')
+	const name = preset.replace('@theme-ui/preset-', '')
 	
-	return`import { ${name} } from '${preset}'
+	return`import ${name} from '${preset}'
 
 const { styles, ...theme } = ${name}
 
@@ -51,8 +52,8 @@ const scaffold = data => {
 	fs.writeFileSync('src/gatsby-plugin-theme-ui/index.js', generateTheme(data.preset))
 	fs.writeFileSync('src/gatsby-plugin-theme-ui/components.js', 'export default {}')
 
-	copyFile('templates/headers/basic.js', 'src/components/header.js')
-	copyFile('templates/footers/basic.js', 'src/components/footer.js')
+	copyFile(`templates/headers/${data.header}.js`, 'src/components/header.js')
+	copyFile(`templates/footers/${data.footer}.js`, 'src/components/footer.js')
 	copyFile('templates/layouts/basic.js', 'src/components/layout.js')
 	copyFile('templates/posts/post-link.js', 'src/components/post-link.js')
 
@@ -103,7 +104,7 @@ class BlogPost extends Component  {
 
 		if (step === 'preset') {
 			const items = Object.keys(presets).map(preset => {
-				const value = `@theme-ui/${preset}`
+				const value = `@theme-ui/preset-${preset}`
 
 				return { value, label: preset }
 			})

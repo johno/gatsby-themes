@@ -9,7 +9,7 @@ const HeaderLink = props =>
     sx={{
       textDecoration: 'none',
       fontWeight: 'bold',
-      color: 'primary',
+      color: 'rebeccapurple',
       '&.active': {
         color: 'secondary',
       }

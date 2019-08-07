@@ -4,17 +4,9 @@ import { jsx, Styled } from 'theme-ui'
 export default ({ title, excerpt, date, slug }) => (
   <div
     sx={{
-      mt: 4
+      mt: 2
     }}
   >
-    <Styled.p
-      sx={{
-        m: 0,
-        color: 'gray'
-      }}
-    >
-      {date}
-    </Styled.p>
     <Styled.h3
       sx={{
         fontSize: 4,
@@ -31,12 +23,5 @@ export default ({ title, excerpt, date, slug }) => (
         {title}
       </Styled.a>
     </Styled.h3>
-    <Styled.p
-      sx={{
-        mt: 2
-      }}
-    >
-      {excerpt}
-    </Styled.p>
   </div>
 )
