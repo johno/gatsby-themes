@@ -5,3 +5,4 @@ dist
 .cache
 public
 gatsby
+theme-ui
