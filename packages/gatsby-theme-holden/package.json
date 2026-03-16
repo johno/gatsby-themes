@@ -17,7 +17,7 @@
     "gatsby-mdx": "^0.3.3",
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-page-creator": "^2.0.5",
-    "gatsby-plugin-sharp": "^2.0.18",
+    "gatsby-plugin-sharp": "^4.25.1",
     "gatsby-plugin-styled-components": "^3.0.4",
     "gatsby-source-filesystem": "^2.0.13",
     "gatsby-transformer-sharp": "^2.1.10",
